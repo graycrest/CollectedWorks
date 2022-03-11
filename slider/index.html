@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Slider" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="pdostert@gmail.com" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<meta name="theme-color" content="white" />
+
+<meta name="twitter:card" content="summary" />
+<meta property="og:url" content="https://celerisk.com/slider/index.html" />
+<meta property="og:title" content="Slider" />
+<meta property="og:description" content="Quick puzzle game for those rare and short free moments" />
+<meta property="og:image" content="https://celerisk.com/slider/images/slider.png" />
+
+<title>Slider</title>
+
+<link rel="manifest" href="/slider/manifest.json" />
+<link rel="apple-touch-icon" sizes="180x180" href="/slider/icons/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/slider/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/slider/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/slider/icons/favicon-16x16.png">
+
+<link rel="stylesheet" href="/css/all.css" />
+<link rel="stylesheet" href="/slider/css/styles.css" />
+
+<script src="/slider/js/index.js"></script>
+<script src="/js/lib.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<span class="emoji medical-mask large"></span>Slider
+	</div>
+	<div class="navbar-center">
+		<span title="Time" class="mr-1">&#x23f1;&nbsp;<span id="timer">-.-</span></span>
+		<span title="Moves">&#x1f9e9;&nbsp;<span id="moves">-.-</span></span>
+	</div>
+	<div class="navbar-nav">
+		<button type="button" id="control_new"><span class="emoji play"></span>New</button>
+	</div>
+</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+
+	<div class="d-center">
+		<form method="post" action="slider.html">
+			<div id="board" class="ml-1">
+				<div><button type="button" data-xy="0,0">&nbsp;</button><button type="button" data-xy="1,0">&nbsp;</button><button type="button" data-xy="2,0">&nbsp;</button><button type="button" data-xy="3,0">&nbsp;</button><button type="button" data-xy="4,0">&nbsp;</button></div>
+				<div><button type="button" data-xy="0,1">&nbsp;</button><button type="button" data-xy="1,1">&nbsp;</button><button type="button" data-xy="2,1">&nbsp;</button><button type="button" data-xy="3,1">&nbsp;</button><button type="button" data-xy="4,1">&nbsp;</button></div>
+				<div><button type="button" data-xy="0,2">&nbsp;</button><button type="button" data-xy="1,2">&nbsp;</button><button type="button" data-xy="2,2">&nbsp;</button><button type="button" data-xy="3,2">&nbsp;</button><button type="button" data-xy="4,2">&nbsp;</button></div>
+				<div><button type="button" data-xy="0,3">&nbsp;</button><button type="button" data-xy="1,3">&nbsp;</button><button type="button" data-xy="2,3">&nbsp;</button><button type="button" data-xy="3,3">&nbsp;</button><button type="button" data-xy="4,3">&nbsp;</button></div>
+				<div><button type="button" data-xy="0,4">&nbsp;</button><button type="button" data-xy="1,4">&nbsp;</button><button type="button" data-xy="2,4">&nbsp;</button><button type="button" data-xy="3,4">&nbsp;</button><button type="button" data-xy="4,4">&nbsp;</button></div>
+			</div>
+		</form>
+	</div>
+
+	<div class="d-center">
+		<div id="hint" class="my-0">&nbsp;</div>
+	</div>
+
+	<div id="highscoreshide" class="d-center hidden">
+		<header class="my-0">Highscores</header>
+		<div id="highscoretable" class="score">
+			<div class="index">&nbsp;</div>
+			<div class="value">&#x1f60a;&nbsp;&nbsp;</div>
+			<div class="time">&#x23f1;&nbsp;</div>
+			<div class="moves">&#x1f9e9;</div>
+		</div>
+		<div id="highscores">
+			<div class="score">
+				<div class="index">0</div>
+				<div class="value">Ready</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+	<div class="grid">
+		<div class="col-1 span-3 text-left">
+			<a href="/slider/help.html"><span class="emoji scroll large"></span>What's this?</a>
+		</div>
+		<div class="col-4 span-3 text-right">
+			<a href="/slider/administration.html"><span class="emoji toolbox large"></span>Settings</a>
+		</div>
+	</div>
+<hr />
+<div>&copy; 2020 PLC-Soft</div>
+</div>
+</footer>
+
+</body>
+</html>

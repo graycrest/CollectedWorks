@@ -1,0 +1,350 @@
+
+/* https://htmlcolorcodes.com/color-names/ */
+
+
+.t_success {color: ForestGreen;}
+.t_info {color: LightSkyBlue;}
+.t_warning {color: Orange;}
+.t_danger {color: Red;}
+
+.b_success {background-color: ForestGreen;}
+.b_info {background-color: LightSkyBlue;}
+.b_warning {background-color: Orange;}
+.b_danger {background-color: Red;}
+
+
+/* Red */
+
+.t_indianred {color: IndianRed;}
+.t_lightcoral {color: LightCoral;}
+.t_salmon {color: Salmon;}
+.t_darksalmon {color: DarkSalmon;}
+.t_lightsalmon {color: LightSalmon;}
+.t_crimson {color: Crimson;}
+.t_red {color: Red;}
+.t_firebrick {color: FireBrick;}
+.t_darkred {color: DarkRed;}
+
+.b_indianred {background-color: IndianRed;}
+.b_lightcoral {background-color: LightCoral;}
+.b_salmon {background-color: Salmon;}
+.b_darksalmon {background-color: DarkSalmon;}
+.b_lightsalmon {background-color: LightSalmon;}
+.b_crimson {background-color: Crimson;}
+.b_red {background-color: Red;}
+.b_firebrick {background-color: FireBrick;}
+.b_darkred {background-color: DarkRed;}
+
+
+/* Pink */
+
+.t_pink {color: Pink;}
+.t_lightpink {color: LightPink;}
+.t_hotpink {color: HotPink;}
+.t_deeppink {color: DeepPink;}
+.t_mediumvioletred {color: MediumVioletRed;}
+.t_palevioletred {color: PaleVioletRed;}
+
+.b_pink {background-color: Pink;}
+.b_lightpink {background-color: LightPink;}
+.b_hotpink {background-color: HotPink;}
+.b_deeppink {background-color: DeepPink;}
+.b_mediumvioletred {background-color: MediumVioletRed;}
+.b_palevioletred {background-color: PaleVioletRed;}
+
+
+/* Orange */
+
+.t_lightsalmon {color: LightSalmon;}
+.t_coral {color: Coral;}
+.t_tomato {color: Tomato;}
+.t_orangered {color: OrangeRed;}
+.t_darkorange {color: DarkOrange;}
+.t_orange {color: Orange;}
+
+.b_lightsalmon {background-color: LightSalmon;}
+.b_coral {background-color: Coral;}
+.b_tomato {background-color: Tomato;}
+.b_orangered {background-color: OrangeRed;}
+.b_darkorange {background-color: DarkOrange;}
+.b_orange {background-color: Orange;}
+
+
+/* Yellow */
+
+.t_gold {color: Gold;}
+.t_yellow {color: Yellow;}
+.t_lightyellow {color: LightYellow;}
+.t_lemonchiffon {color: LemonChiffon;}
+.t_lightgoldenrodyellow {color: LightGoldenrodYellow;}
+.t_papayawhip {color: PapayaWhip;}
+.t_moccasin {color: Moccasin;}
+.t_peachpuff {color: PeachPuff;}
+.t_palegoldenrod {color: PaleGoldenrod;}
+.t_khaki {color: Khaki;}
+.t_darkkhaki {color: DarkKhaki;}
+
+.b_gold {background-color: Gold;}
+.b_yellow {background-color: Yellow;}
+.b_lightyellow {background-color: LightYellow;}
+.b_lemonchiffon {background-color: LemonChiffon;}
+.b_lightgoldenrodyellow {background-color: LightGoldenrodYellow;}
+.b_papayawhip {background-color: PapayaWhip;}
+.b_moccasin {background-color: Moccasin;}
+.b_peachpuff {background-color: PeachPuff;}
+.b_palegoldenrod {background-color: PaleGoldenrod;}
+.b_khaki {background-color: Khaki;}
+.b_darkkhaki {background-color: DarkKhaki;}
+
+
+/* Purple */
+
+.t_lavender {color: Lavender;}
+.t_thistle {color: Thistle;}
+.t_plum {color: Plum;}
+.t_violet {color: Violet;}
+.t_orchid {color: Orchid;}
+.t_fuchsia {color: Fuchsia;}
+.t_magenta {color: Magenta;}
+.t_mediumorchid {color: MediumOrchid;}
+.t_mediumpurple {color: MediumPurple;}
+.t_rebeccapurple {color: RebeccaPurple;}
+.t_blueviolet {color: BlueViolet;}
+.t_darkviolet {color: DarkViolet;}
+.t_darkorchid {color: DarkOrchid;}
+.t_darkmagenta {color: DarkMagenta;}
+.t_purple {color: Purple;}
+.t_indigo {color: Indigo;}
+.t_slateblue {color: SlateBlue;}
+.t_darkslateblue {color: DarkSlateBlue;}
+.t_mediumslateblue {color: MediumSlateBlue;}
+
+.b_lavender {background-color: Lavender;}
+.b_thistle {background-color: Thistle;}
+.b_plum {background-color: Plum;}
+.b_violet {background-color: Violet;}
+.b_orchid {background-color: Orchid;}
+.b_fuchsia {background-color: Fuchsia;}
+.b_magenta {background-color: Magenta;}
+.b_mediumorchid {background-color: MediumOrchid;}
+.b_mediumpurple {background-color: MediumPurple;}
+.b_rebeccapurple {background-color: RebeccaPurple;}
+.b_blueviolet {background-color: BlueViolet;}
+.b_darkviolet {background-color: DarkViolet;}
+.b_darkorchid {background-color: DarkOrchid;}
+.b_darkmagenta {background-color: DarkMagenta;}
+.b_purple {background-color: Purple;}
+.b_indigo {background-color: Indigo;}
+.b_slateblue {background-color: SlateBlue;}
+.b_darkslateblue {background-color: DarkSlateBlue;}
+.b_mediumslateblue {background-color: MediumSlateBlue;}
+
+
+/* Green */
+
+.t_greenyellow {color: GreenYellow;}
+.t_chartreuse {color: Chartreuse;}
+.t_lawngreen {color: LawnGreen;}
+.t_lime {color: Lime;}
+.t_limegreen {color: LimeGreen;}
+.t_palegreen {color: PaleGreen;}
+.t_lightgreen {color: LightGreen;}
+.t_mediumspringgreen {color: MediumSpringGreen;}
+.t_springgreen {color: SpringGreen;}
+.t_mediumseagreen {color: MediumSeaGreen;}
+.t_seagreen {color: SeaGreen;}
+.t_forestgreen {color: ForestGreen;}
+.t_green {color: Green;}
+.t_darkgreen {color: DarkGreen;}
+.t_yellowgreen {color: YellowGreen;}
+.t_olivedrab {color: OliveDrab;}
+.t_olive {color: Olive;}
+.t_darkolivegreen {color: DarkOliveGreen;}
+.t_mediumaquamarine {color: MediumAquamarine;}
+.t_darkseagreen {color: DarkSeaGreen;}
+.t_lightseagreen {color: LightSeaGreen;}
+.t_darkcyan {color: DarkCyan;}
+.t_teal {color: Teal;}
+
+.b_greenyellow {background-color: GreenYellow;}
+.b_chartreuse {background-color: Chartreuse;}
+.b_lawngreen {background-color: LawnGreen;}
+.b_lime {background-color: Lime;}
+.b_limegreen {background-color: LimeGreen;}
+.b_palegreen {background-color: PaleGreen;}
+.b_lightgreen {background-color: LightGreen;}
+.b_mediumspringgreen {background-color: MediumSpringGreen;}
+.b_springgreen {background-color: SpringGreen;}
+.b_mediumseagreen {background-color: MediumSeaGreen;}
+.b_seagreen {background-color: SeaGreen;}
+.b_forestgreen {background-color: ForestGreen;}
+.b_green {background-color: Green;}
+.b_darkgreen {background-color: DarkGreen;}
+.b_yellowgreen {background-color: YellowGreen;}
+.b_olivedrab {background-color: OliveDrab;}
+.b_olive {background-color: Olive;}
+.b_darkolivegreen {background-color: DarkOliveGreen;}
+.b_mediumaquamarine {background-color: MediumAquamarine;}
+.b_darkseagreen {background-color: DarkSeaGreen;}
+.b_lightseagreen {background-color: LightSeaGreen;}
+.b_darkcyan {background-color: DarkCyan;}
+.b_teal {background-color: Teal;}
+
+
+/* Blue */
+
+.t_aqua {color: Aqua;}
+.t_cyan {color: Cyan;}
+.t_lightcyan {color: LightCyan;}
+.t_paleturquoise {color: PaleTurquoise;}
+.t_aquamarine {color: Aquamarine;}
+.t_turquoise {color: Turquoise;}
+.t_mediumturquoise {color: MediumTurquoise;}
+.t_darkturquoise {color: DarkTurquoise;}
+.t_cadetblue {color: CadetBlue;}
+.t_steelblue {color: SteelBlue;}
+.t_lightsteelblue {color: LightSteelBlue;}
+.t_powderblue {color: PowderBlue;}
+.t_lightblue {color: LightBlue;}
+.t_skyblue {color: SkyBlue;}
+.t_lightskyblue {color: LightSkyBlue;}
+.t_deepskyblue {color: DeepSkyBlue;}
+.t_dodgerblue {color: DodgerBlue;}
+.t_cornflowerblue {color: CornflowerBlue;}
+.t_mediumslateblue {color: MediumSlateBlue;}
+.t_royalblue {color: RoyalBlue;}
+.t_blue {color: Blue;}
+.t_mediumblue {color: MediumBlue;}
+.t_darkblue {color: DarkBlue;}
+.t_navy {color: Navy;}
+.t_midnightblue {color: MidnightBlue;}
+
+.b_aqua {background-color: Aqua;}
+.b_cyan {background-color: Cyan;}
+.b_lightcyan {background-color: LightCyan;}
+.b_paleturquoise {background-color: PaleTurquoise;}
+.b_aquamarine {background-color: Aquamarine;}
+.b_turquoise {background-color: Turquoise;}
+.b_mediumturquoise {background-color: MediumTurquoise;}
+.b_darkturquoise {background-color: DarkTurquoise;}
+.b_cadetblue {background-color: CadetBlue;}
+.b_steelblue {background-color: SteelBlue;}
+.b_lightsteelblue {background-color: LightSteelBlue;}
+.b_powderblue {background-color: PowderBlue;}
+.b_lightblue {background-color: LightBlue;}
+.b_skyblue {background-color: SkyBlue;}
+.b_lightskyblue {background-color: LightSkyBlue;}
+.b_deepskyblue {background-color: DeepSkyBlue;}
+.b_dodgerblue {background-color: DodgerBlue;}
+.b_cornflowerblue {background-color: CornflowerBlue;}
+.b_mediumslateblue {background-color: MediumSlateBlue;}
+.b_royalblue {background-color: RoyalBlue;}
+.b_blue {background-color: Blue;}
+.b_mediumblue {background-color: MediumBlue;}
+.b_darkblue {background-color: DarkBlue;}
+.b_navy {background-color: Navy;}
+.b_midnightblue {background-color: MidnightBlue;}
+
+
+/* Brown */
+
+.t_cornsilk {color: Cornsilk;}
+.t_blanchedalmond {color: BlanchedAlmond;}
+.t_bisque {color: Bisque;}
+.t_navajowhite {color: NavajoWhite;}
+.t_wheat {color: Wheat;}
+.t_burlywood {color: BurlyWood;}
+.t_tan {color: Tan;}
+.t_rosybrown {color: RosyBrown;}
+.t_sandybrown {color: SandyBrown;}
+.t_goldenrod {color: Goldenrod;}
+.t_darkgoldenrod {color: DarkGoldenrod;}
+.t_peru {color: Peru;}
+.t_chocolate {color: Chocolate;}
+.t_saddlebrown {color: SaddleBrown;}
+.t_sienna {color: Sienna;}
+.t_brown {color: Brown;}
+.t_maroon {color: Maroon;}
+
+.b_cornsilk {background-color: Cornsilk;}
+.b_blanchedalmond {background-color: BlanchedAlmond;}
+.b_bisque {background-color: Bisque;}
+.b_navajowhite {background-color: NavajoWhite;}
+.b_wheat {background-color: Wheat;}
+.b_burlywood {background-color: BurlyWood;}
+.b_tan {background-color: Tan;}
+.b_rosybrown {background-color: RosyBrown;}
+.b_sandybrown {background-color: SandyBrown;}
+.b_goldenrod {background-color: Goldenrod;}
+.b_darkgoldenrod {background-color: DarkGoldenrod;}
+.b_peru {background-color: Peru;}
+.b_chocolate {background-color: Chocolate;}
+.b_saddlebrown {background-color: SaddleBrown;}
+.b_sienna {background-color: Sienna;}
+.b_brown {background-color: Brown;}
+.b_maroon {background-color: Maroon;}
+
+
+/* White */
+
+.t_white {color: White;}
+.t_snow {color: Snow;}
+.t_honeydew {color: HoneyDew;}
+.t_mintcream {color: MintCream;}
+.t_azure {color: Azure;}
+.t_aliceblue {color: AliceBlue;}
+.t_ghostwhite {color: GhostWhite;}
+.t_whitesmoke {color: WhiteSmoke;}
+.t_seashell {color: SeaShell;}
+.t_beige {color: Beige;}
+.t_oldlace {color: OldLace;}
+.t_floralwhite {color: FloralWhite;}
+.t_ivory {color: Ivory;}
+.t_antiquewhite {color: AntiqueWhite;}
+.t_linen {color: Linen;}
+.t_lavenderblush {color: LavenderBlush;}
+.t_mistyrose {color: MistyRose;}
+
+.b_white {background-color: White;}
+.b_snow {background-color: Snow;}
+.b_honeydew {background-color: HoneyDew;}
+.b_mintcream {background-color: MintCream;}
+.b_azure {background-color: Azure;}
+.b_aliceblue {background-color: AliceBlue;}
+.b_ghostwhite {background-color: GhostWhite;}
+.b_whitesmoke {background-color: WhiteSmoke;}
+.b_seashell {background-color: SeaShell;}
+.b_beige {background-color: Beige;}
+.b_oldlace {background-color: OldLace;}
+.b_floralwhite {background-color: FloralWhite;}
+.b_ivory {background-color: Ivory;}
+.b_antiquewhite {background-color: AntiqueWhite;}
+.b_linen {background-color: Linen;}
+.b_lavenderblush {background-color: LavenderBlush;}
+.b_mistyrose {background-color: MistyRose;}
+
+
+/* Gray */
+
+.t_gainsboro {color: Gainsboro;}
+.t_lightgray {color: LightGray;}
+.t_silver {color: Silver;}
+.t_darkgray {color: DarkGray;}
+.t_gray {color: Gray;}
+.t_dimgray {color: DimGray;}
+.t_lightslategray {color: LightSlateGray;}
+.t_slategray {color: SlateGray;}
+.t_darkslategray {color: DarkSlateGray;}
+.t_black {color: Black;}
+
+.b_gainsboro {background-color: Gainsboro;}
+.b_lightgray {background-color: LightGray;}
+.b_silver {background-color: Silver;}
+.b_darkgray {background-color: DarkGray;}
+.b_gray {background-color: Gray;}
+.b_dimgray {background-color: DimGray;}
+.b_lightslategray {background-color: LightSlateGray;}
+.b_slategray {background-color: SlateGray;}
+.b_darkslategray {background-color: DarkSlateGray;}
+.b_black {background-color: Black;}
+

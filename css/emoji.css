@@ -1,0 +1,73 @@
+
+/* https://emojipedia.org/ */
+/* https://unicode.org/emoji/charts/full-emoji-list.html */
+.emoji {margin-right: 2px;}
+
+.emoji.abacus:before {content: "\1f9ee";}
+.emoji.basket:before {content: "\1f9fa";}
+.emoji.bar-chart:before {content: "\1f4ca";}
+.emoji.blue-book:before {content: "\1f4d8";}
+.emoji.bomb:before {content: "\1f4a3";}
+.emoji.books:before {content: "\1f4da";}
+.emoji.brain:before {content: "\1f9e0";}
+.emoji.brick:before {content: "\1f9f1";}
+.emoji.chart-decreasing:before {content: "\1f4c9";}
+.emoji.chart-increasing:before {content: "\1f4c8";}
+.emoji.check:before {content: "\2714";}
+.emoji.checkbox:before {content: "\2611";}
+.emoji.cheese:before {content: "\1f9c0";}
+.emoji.construction-worker:before {content: "\1f477";}
+.emoji.cross:before {content: "\274c";}
+.emoji.dash:before {content: "\1f4a8";}
+.emoji.fire:before {content: "\1f525";}
+.emoji.gear:before {content: "\2699";}
+.emoji.home:before {content: "\1f3e0";}
+.emoji.information:before {content: "\2139";}
+.emoji.lightning:before {content: "\26a1";}
+.emoji.map:before {content: "\1f5fa";}
+.emoji.memo:before {content: "\1f4dd";}
+.emoji.mouse-face:before {content: "\1f42d";}
+.emoji.newspaper:before {content: "\1f4f0";}
+.emoji.numbers:before {content: "\1f522";}
+.emoji.open-book:before {content: "\1f4d6";}
+.emoji.package:before {content: "\1f4e6";}
+.emoji.page:before {content: "\1f4c3";}
+.emoji.pen:before {content: "\1f58a";}
+.emoji.pirate-flag:before {content: "\1f3f4";}
+.emoji.play:before {content: "\25b6";}
+.emoji.plus:before {content: "\2795";}
+.emoji.refresh:before {content: "\1f504";}
+.emoji.scroll:before {content: "\1f4dc";}
+.emoji.search:before {content: "\1f50d";}
+.emoji.shuffle:before {content: "\1f500";}
+.emoji.sponge:before {content: "\1f9fd";}
+.emoji.toolbox:before {content: "\1f9f0";}
+.emoji.triangular-ruler:before {content: "\1f4d0";}
+.emoji.wastebasket:before {content: "\1f5d1";}
+
+.emoji.medical-mask:before {content: "\1f637";}
+.emoji.thinking-face:before {content: "\1f914";}
+.emoji.party-popper:before {content: "\1f389";}
+.emoji.partying-face:before {content: "\1f973";}
+
+.emoji.red-circle:before {content: "\1f534";}
+.emoji.orange-circle:before {content: "\1f7e0";}
+.emoji.yellow-circle:before {content: "\1f7e1";}
+.emoji.green-circle:before {content: "\1f7e2";}
+.emoji.blue-circle:before {content: "\1f535";}
+.emoji.purple-circle:before {content: "\1f7e3";}
+.emoji.brown-circle:before {content: "\1f7e4";}
+.emoji.black-circle:before {content: "\26ab";}
+.emoji.white-circle:before {content: "\26aa";}
+
+
+.emoji.black-square:before {content: "\2b1b";}
+.emoji.white-square:before {content: "\2b1c";}
+.emoji.red-square:before {content: "\1f7e5";}
+.emoji.blue-square:before {content: "\1f7e6";}
+.emoji.orange-square:before {content: "\1f7e7";}
+.emoji.yellow-square:before {content: "\1f7e8";}
+.emoji.green-square:before {content: "\1f7e9";}
+.emoji.purple-square:before {content: "\1f7ea";}
+.emoji.brown-square:before {content: "\1f7eb";}
+

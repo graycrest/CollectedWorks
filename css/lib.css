@@ -1,0 +1,213 @@
+
+/* "reset.css" */
+*, *::before, *::after {box-sizing: border-box;}
+*:focus {outline: 3px dotted #228bec;}
+html {font: 62.5% / 1.15 sans-serif;}
+button {border: none; margin: 0; padding: 0; width: auto; overflow: visible; background: transparent; color: inherit; font: inherit; line-height: normal;}
+button, input, optgroup, select, textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0;}
+button, input {overflow: visible; border-radius: 4px;}
+body {
+  width: 100%;
+  max-width: 150rem;
+  margin: 0 auto;
+  font: 1.9rem/1.31579 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fefefe;
+  color: #444;
+}
+
+
+/* lib.css */
+
+body {display: grid; grid-template-rows: auto 1fr auto; background-color: WhiteSmoke;} /* header main footer */
+
+body > header {background-color: WhiteSmoke;}
+body > main {background-color: White; min-height: 32rem; padding-top: 1em; padding-bottom: 1em;}
+body > footer {background-color: WhiteSmoke; padding-top: 1.5em; border-top: solid 1px LightGray;}
+
+:not(body) > header {font-weight: bold; font-size: 110%;}
+
+.navbar {display: grid; grid-template-columns: auto 1fr auto; padding: 0;}
+.navbar-brand {display: inline; text-align: left; margin: auto 0;}
+.navbar-center {display: inline; text-align: center; margin: auto auto; min-width: 10em;}
+.navbar-nav {display: inline; text-align: right; margin: auto 0;}
+
+.container {max-width: 100rem; margin: 0 auto;}
+
+.grid {display: grid; grid-template-columns: repeat(6, 1fr);}
+
+.col-1 {grid-column-start: 1;}
+.col-2 {grid-column-start: 2;}
+.col-3 {grid-column-start: 3;}
+.col-4 {grid-column-start: 4;}
+.col-5 {grid-column-start: 5;}
+.col-6 {grid-column-start: 6;}
+
+.span-1 {grid-column-end: span 1;}
+.span-2 {grid-column-end: span 2;}
+.span-3 {grid-column-end: span 3;}
+.span-4 {grid-column-end: span 4;}
+.span-5 {grid-column-end: span 5;}
+.span-6 {grid-column-end: span 6;}
+
+.stack1 {display: flex; flex-wrap: wrap; justify-content: center;}
+.stack1 > * {flex: 0 1 100rem;}
+
+.stack2 {display: flex; flex-wrap: wrap; justify-content: center;}
+.stack2 > * {flex: 0 1 50rem;}
+
+.stack3 {display: flex; flex-wrap: wrap; justify-content: center;}
+.stack3 > * {flex: 0 1 33.3rem;}
+
+.stack4 {display: flex; flex-wrap: wrap; justify-content: center;}
+.stack4 > * {flex: 0 1 25rem;}
+
+.stack5 {display: flex; flex-wrap: wrap; justify-content: center;}
+.stack5 > * {flex: 0 1 20rem;}
+
+.stack6 {display: flex; flex-wrap: wrap; justify-content: center;}
+.stack6 > * {flex: 0 1 16.6rem;}
+
+.card {display: grid; grid-template-rows: auto 1fr auto; border: solid 1px lightgray; border-radius: 4px; max-width: 20rem;}
+
+.mt-0 {margin-top: 0.5em;}
+.mt-1 {margin-top: 1em;}
+.mt-2 {margin-top: 2em;}
+.mt-3 {margin-top: 3em;}
+
+.mb-0 {margin-bottom: 0.5em;}
+.mb-1 {margin-bottom: 1em;}
+.mb-2 {margin-bottom: 2em;}
+.mb-3 {margin-bottom: 3em;}
+
+.ml-0 {margin-left: 0.5em;}
+.ml-1 {margin-left: 1em;}
+.ml-2 {margin-left: 2em;}
+.ml-3 {margin-left: 3em;}
+
+.mr-0 {margin-right: 0.5em;}
+.mr-1 {margin-right: 1em;}
+.mr-2 {margin-right: 2em;}
+.mr-3 {margin-right: 3em;}
+
+.mx-0 {margin-left: 0.5em; margin-right: 0.5em;}
+.mx-1 {margin-left: 1em; margin-right: 1em;}
+.mx-2 {margin-left: 2em; margin-right: 2em;}
+.mx-3 {margin-left: 3em; margin-right: 3em;}
+
+.my-0 {margin-top: 0.5em; margin-bottom: 0.5em;}
+.my-1 {margin-top: 1em; margin-bottom: 1em;}
+.my-2 {margin-top: 2em; margin-bottom: 2em;}
+.my-3 {margin-top: 3em; margin-bottom: 3em;}
+
+.mx-auto {margin-left: auto; margin-right: auto;}
+.my-auto {margin-top: auto; margin-bottom: auto;}
+
+a {color: Blue; text-decoration: none;}
+.navbar a {display: inline-flex; margin-top: 4px; margin-bottom: 4px; padding: 0.5em 1em;}
+a:visited {color: Blue;}
+a:hover {color: RoyalBlue;}
+.navbar a:hover {color: RoyalBlue; border-color: Black;}
+
+code {font-family: monospace; font-size: 80%; white-space: pre-wrap; word-wrap: break-word; tab-size: 4; line-height: 1.5; font-size: 12pt;}
+pre {font-size: 90%; tab-size: 4; margin: 0; padding: 0.5em 0; white-space: pre-wrap; word-wrap: break-word;}
+p {margin-top: 0;}
+
+blockquote {padding: 1em; max-width: 40rem; border: solid 1px LightGray; border-radius: 4px;}
+blockquote cite {display: block; text-align: right; font-size: 80%;}
+
+dl dt {font-weight: bold; color: SteelBlue;}
+dl dd {margin: 0;}
+dl dd {margin-left: 1em;}
+
+ul li {margin: 0;}
+ul li {margin-left: 1em; list-style-type: disc;}
+
+table {border-collapse: collapse; border-spacing: 0; width: 100%; table-layout: fixed; caption-side: bottom;}
+table caption {font-style: italic; font-size: 80%; text-align: right;}
+tfoot {font-weight: bold; font-size: 80%; text-align: left;}
+
+thead tr {border-bottom: solid 2px DimGray; width: 100%;}
+tbody tr {border-top: solid 1px LightGray; width: 100%;}
+tbody tr:hover {background-color: Snow;}
+tfoot tr {border-top: solid 2px Gray; background-color: WhiteSmoke;}
+
+th {color: SteelBlue;}
+th, td {text-align: left; vertical-align: top; padding: 2px; overflow: hidden; text-overflow: ellipsis;}
+
+h1, h2 {margin-bottom: 0;}
+ul {list-style: none; padding: 0;}
+
+button {margin: 1px; padding: 0.5em 1em; background-color: White; border: solid 1px LightGray; border-radius: 4px;}
+button:hover {border-color: Gray;}
+button:disabled {color: #bbb;}
+
+form {padding-top: 4px; padding-bottom: 4px;}
+form fieldset {margin: 0; border: solid 1px LightGray; border-radius: 4px;}
+form legend {font-weight: bold; padding: 2px 0.5em; color: SteelBlue;}
+form label {font-weight: bold; color: SteelBlue; display: inline-flex; width: 100%;}
+
+form .checkbox label {font-weight: normal; color: Black;}
+form .radio label {font-weight: normal; color: Black;}
+
+select {border: solid 1px Gray; padding: 0.5em 1em; border-radius: 4px;}
+select:focus {outline: none; border-color: LightSteelBlue;}
+
+textarea {width: 100%; padding: 0.5em 1em;}
+textarea:focus {outline: none; border-color: LightSteelBlue;}
+
+input {border: solid 1px Gray; padding: 0.5em 1em;}
+input[type="text"] {width: 100%;}
+input:focus {outline: none; border-color: LightSteelBlue;}
+
+.input-group {display: table; width: 100%;}
+.input-group div {display: table-cell; margin: 0;}
+.input-group input {margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;}
+.input-group button {margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;}
+
+
+.switch {position: relative; display: inline-block;}
+.switch-input {display: none;}
+.switch-label {display: block; width: 48px; height: 24px; text-indent: -150%; clip: rect(0 0 0 0); color: transparent; user-select: none;}
+.switch-label::before, .switch-label::after {content: ""; display: block; position: absolute; cursor: pointer;}
+.switch-label::before {width: 100%; height: 100%; background-color: LightGray; border-radius: 9999em; transition: background-color 0.25s ease;}
+.switch-label::after {top: 0; left: 0; width: 24px; height: 24px; border-radius: 50%; background-color: White; box-shadow: 0 0 2px rgba(0, 0, 0, 0.45); transition: left 0.25s ease;}
+.switch-input:checked + .switch-label::before {background-color: Green;}
+.switch-input:checked + .switch-label::after {left: 24px;}
+
+.spoiler {}
+.spoiler-header {cursor: pointer; color: SteelBlue;}
+.spoiler-header:hover {color: Blue;}
+
+.tabs, .tabs-vertical {border: solid 1px LightGray; border-radius: 4px;}
+.tabs-header {padding: 0 1em; background-color: Snow; color: SteelBlue; cursor: pointer;}
+.tabs-header:hover {color: Blue;}
+.tab {padding: 1em;}
+
+.section {padding: 0 1em; margin: 1em 0; background-color: Snow; color: Gray; font-size: 80%; text-align: center;}
+
+.d-center {display: grid; place-items: center; margin: 0.5em auto;}
+.inline {display: inline;}
+.mute {color: #bbb;}
+small {font-size: 80%;}
+.small {font-size: 80%;}
+.large {font-size: 150%;}
+.hidden {display: none}
+.bold {font-weight: bold;}
+
+.text-left {text-align: left;}
+.text-center {text-align: center;}
+.text-right {text-align: right;}
+
+.help, .help-success, .help-info, .help-warning, .help-danger {border: solid 1px LightGray; border-left: solid 5px Gray; padding: 1em;}
+.help header, .help-success header, .help-info header, .help-warning header, .help-danger header {font-weight: bold; font-size: 120%; color: Gray; padding-bottom: 0.5em;}
+
+.help-success header {color: ForestGreen;}
+.help-info header {color: LightSkyBlue;}
+.help-warning header {color: Orange;}
+.help-danger header {color: Red;}
+
+.help-success {border-left: solid 5px ForestGreen;}
+.help-info {border-left: solid 5px LightSkyBlue;}
+.help-warning {border-left: solid 5px Orange;}
+.help-danger {border-left: solid 5px Red;}
+

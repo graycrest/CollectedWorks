@@ -1,0 +1,25 @@
+
+#highscores {max-height: 12em; overflow-x: hidden; overflow-y: scroll; background-color: lightgray;}
+
+.score {display: grid; grid-template-columns: auto 1fr 1fr 1fr; margin-top: 1px; margin-bottom: 1px; background-color: white;}
+.score .index {text-align: right; font-size: 80%; width: 1.5em;}
+.score .value {text-align: right; padding-left: 2em; padding-right: 0.5em;}
+.score .time {text-align: right; font-size: 80%;}
+.score .moves {text-align: right; font-size: 80%;}
+
+[data-color="0"] {background-color: white;}
+[data-color="1"] {background-color: indianred;}
+[data-color="2"] {background-color: slateblue;}
+[data-color="3"] {background-color: lightseagreen;}
+[data-color="4"] {background-color: orange;}
+[data-color="5"] {background-color: lightblue;}
+[data-color="6"] {background-color: tan;}
+
+[data-color="7"] {background-color: white;}
+[data-color="8"] {background-color: rgba(205, 92, 92, 85%);}
+[data-color="9"] {background-color: rgba(106, 90, 205, 85%);}
+[data-color="10"] {background-color: rgba(32, 178, 170, 85%);}
+[data-color="11"] {background-color: rgba(255, 165, 0, 85%);}
+[data-color="12"] {background-color: rgba(173, 216, 230, 85%);}
+[data-color="13"] {background-color: rgba(210, 180, 140, 85%);}
+
