@@ -2,7 +2,7 @@
 #board button:focus {outline: none;}
 #board button:hover {border-color: Black; background-color: Snow;}
 
-#board button {margin: 1px; padding: 0.5em 1em; background-color: white; border: solid 1px #aaa; width: 3em;}
+#board button {margin: 1px; padding: 0.5em 1em; background-color: white; border: solid 1px #aaa; width: 45px;}
 
 #board button.marked {border: solid 1px green;}
 
