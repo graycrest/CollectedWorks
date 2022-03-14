@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="/css/all.css" />
 
 <script src="/js/lib.js"></script>
-<script src="/buttonmania/js/help.js"></script>
 
 <style>
 button {width: 3em; font-size: 80%; text-align: center;}
@@ -38,27 +37,44 @@ button:hover {outline: none; border: solid 1px LightGray;}
 		<a href="/buttonmania/index.html"><span class="emoji books"></span>Back</a>
 	</div>
 </nav>
-</div>
+</div> <!-- container -->
 </header>
 
 <main> <!-- Body-part 2 of 3 -->
 <div class="container">
 
-			<p class="d-center">
+			<div class="d-center">
+				<p>
 			<img src="/buttonmania/images/buttonmania.png" width="256" />
 			</p>
+			<div>
+			<p>
+			Clicking on a button will reduce that button's value by 1 (one), as well as the values of its direct neighbors
+			</p>
+			<p>
+			Reducing a button that is at zero (0) will start it over at three (3)
+			</p>
+			<p>
+			The overall objective is to reduce the entire playing board to "empty", all zeros (0s)
+			</p>
+			</div>
+			</div>
+
 			<hr class="mt-1 mb-2" />
 
-	<table>
-		<thead>
-			<tr><th>Board</th><th>Final</th><th>Demo</th><th>&nbsp;</th></tr>
-		</thead>
-		<tfoot>
-			<tr><td colspan="4" class="text-right">General gameplay</td></tr>
-		</tfoot>
-		<tbody>
-			<tr>
-				<td>
+
+			<table>
+				<caption>Step by step example</caption>
+				<thead>
+					<tr>
+						<th>Example</th>
+						<th>Solving</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+
 <div>
 	<div>
 		<button type="button" class="b_white"><b>3</b></button><button type="button" class="b_white"><b>1</b></button><button type="button" class="b_white"><b>1</b></button>
@@ -73,47 +89,12 @@ button:hover {outline: none; border: solid 1px LightGray;}
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><b>2</b></button><button type="button" class="b_white"><b>1</b></button>
 	</div>
 </div>
-				</td>
-				<td>
-<div>
-	<div>
-		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
-	</div>
-	<div>
-		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
-	</div>
-	<div>
-		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
-	</div>
-	<div>
-		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
-	</div>
-</div>
-				</td>
-				<td>
-		<div id="board">&nbsp;</div>
-				</td>
-				<td>
-					<p>
-					Clicking on a button will reduce that button's value by 1 (one), as well as the values of its direct neighbors
-					</p>
-					<p>
-					Reducing a button that is at zero (0) will start it over at three (3)
-					</p>
-					<p>
-					The overall objective is to reduce the entire playing board to "empty", all zeros (0s)
-					</p>
-				</td>
-			</tr>
-		</tbody>
-	</table>
 
-	<hr class="my-2" />
 
-	<h4>Solving the above example:</h4>
+						</td>
+						<td>
 
-	<div class="stack6">
-<div>
+<p>
 	<div>
 		<button type="button" class="b_white"><b>3</b></button><button type="button" class="b_white bm"><b>1</b></button><button type="button" class="b_white"><b>1</b></button>
 	</div>
@@ -126,8 +107,8 @@ button:hover {outline: none; border: solid 1px LightGray;}
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><b>2</b></button><button type="button" class="b_white"><b>1</b></button>
 	</div>
-</div>
-<div>
+</p>
+<p>
 	<div>
 		<button type="button" class="b_white"><b>2</b></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
 	</div>
@@ -140,8 +121,8 @@ button:hover {outline: none; border: solid 1px LightGray;}
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><b>2</b></button><button type="button" class="b_white"><b>1</b></button>
 	</div>
-</div>
-<div>
+</p>
+<p>
 	<div>
 		<button type="button" class="b_white"><b>1</b></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
 	</div>
@@ -154,8 +135,8 @@ button:hover {outline: none; border: solid 1px LightGray;}
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><b>2</b></button><button type="button" class="b_white"><b>1</b></button>
 	</div>
-</div>
-<div>
+</p>
+<p>
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
 	</div>
@@ -168,8 +149,8 @@ button:hover {outline: none; border: solid 1px LightGray;}
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><b>2</b></button><button type="button" class="b_white"><b>1</b></button>
 	</div>
-</div>
-<div>
+</p>
+<p>
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
 	</div>
@@ -182,10 +163,27 @@ button:hover {outline: none; border: solid 1px LightGray;}
 	<div>
 		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><b>1</b></button><button type="button" class="b_white bm"><b>1</b></button>
 	</div>
-</div>
+</p>
+<p>
+	<div>
+		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
 	</div>
+	<div>
+		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
+	</div>
+	<div>
+		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
+	</div>
+	<div>
+		<button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button><button type="button" class="b_white"><span class="emoji white-circle small"></span></button>
+	</div>
+</p>
 
-</div>
+						</td>
+				</tbody>
+			</table>
+
+</div> <!-- container -->
 </main>
 
 <footer> <!-- Body-part 3 of 3 -->
@@ -193,7 +191,7 @@ button:hover {outline: none; border: solid 1px LightGray;}
 	<div><a href="/buttonmania/index.html"><span class="emoji books large"></span>Back</a></div>
 	<hr />
 	<div>&copy; 2020 PLC-Soft</div>
-</div>
+</div> <!-- container -->
 </footer>
 
 </body>
