@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Codebreaker" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="pdostert@gmail.com" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<title>Codebreaker</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+<link rel="stylesheet" href="/codebreaker/css/styles.css" />
+
+<script src="/js/lib.js"></script>
+<script src="/codebreaker/js/index.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div class="inline"><span class="emoji medical-mask large"></span>Codebreaker</div>
+	</div>
+	<div class="navbar-nav">
+		<form class="inline">
+			<button type="button" id="control_new"><span class="emoji play"></span>New</button>
+		</form>
+	</div>
+</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+	<div id="board">
+		&nbsp;
+	</div>
+	<form id="combination" name="combination" action="codebreaker.html" method="post">
+		<div class="grid">
+			<div class="col-1 span-4 text-right">
+				<select id="select_1" name="select_1">
+					<option value="0" selected="selected">-</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+				<select id="select_2" name="select_2">
+					<option value="0" selected="selected">-</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+				<select id="select_3" name="select_3">
+					<option value="0" selected="selected">-</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+				<select id="select_4" name="select_4">
+					<option value="0" selected="selected">-</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+			</div>
+			<div class="col-5 span-2 text-left">
+				<button id="submit" type="submit" class="ml-1" disabled><span class="emoji check"></span>Go</button>
+			</div>
+		</div>
+	</form>
+</div>
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+<div><a href="/codebreaker/help.html"><span class="emoji scroll large"></span>What's this?</a></div>
+<hr />
+<div>&copy; 2020 PLC-Soft</div>
+</div>
+</footer>
+
+</body>
+</html>
