@@ -10,13 +10,11 @@ button:hover {border-color: Gray;}
 
 select {padding: 0.5em 1em;}
 
-#board button {margin: 1px; padding: 0.5em 1em; background-color: white; border: solid 1px #aaa; width: 3em;}
+#board button {margin: 1px; padding: 0.5em 1em; background-color: white; border: solid 1px #aaa; width: 50px;}
 
 #board button.marked {border: solid 1px green;}
 
 #board button.red-border {border: solid 1px Crimson;}
 #board button.green-border {border: solid 1px ForestGreen;}
 #board button.yellow-border {border: solid 1px Yellow;}
-
-canvas {margin-bottom: -4px;}
 
