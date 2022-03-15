@@ -106,17 +106,12 @@ var game = {
 		var result = game.check(played, game.vars.combination);
 		game.vars.moves.push({played: [played[0], played[1], played[2], played[3]], black: result.black, white: result.white});
 		js('#board').append(js.template(''
-			+ '<div class="grid my-0">'
-				+ '<div class="col-1 span-4 text-right">'
-					+ '{LIGHTS}'
-					+ '<button type="button"><b>{VALUE_1}</b></button>'
-					+ '<button type="button"><b>{VALUE_2}</b></button>'
-					+ '<button type="button"><b>{VALUE_3}</b></button>'
-					+ '<button type="button"><b>{VALUE_4}</b></button>'
-				+ '</div>'
-				+ '<div class="col-5 span-2">'
-					+ '&nbsp;'
-				+ '</div>'
+			+ '<div class="d-center my-0">'
+				+ '<span class="small">{LIGHTS}</small>'
+				+ '<span class="value">{VALUE_1}</span>'
+				+ '<span class="value">{VALUE_2}</span>'
+				+ '<span class="value">{VALUE_3}</span>'
+				+ '<span class="value">{VALUE_4}</span>'
 			+ '</div>'
 		).render(
 			{
@@ -136,13 +131,13 @@ var game = {
 		if (result.black == 4)
 		{
 			game.vars.state = STATE_END;
-			js('#board button').class('green-border').add();
+			js('#board .value').class('green-border').add();
 			js('select').attribute('disabled').set(true);
 		}
-		else if (js('#board div.grid').element().length >= 12)
+		else if (js('#board div').element().length >= 12)
 		{
 			game.vars.state = STATE_END;
-			js('#board button').class('red-border').add();
+			js('#board .value').class('red-border').add();
 			js('select').attribute('disabled').set(true);
 		}
 

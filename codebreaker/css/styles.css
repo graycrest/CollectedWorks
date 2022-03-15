@@ -3,20 +3,10 @@
 button {margin: 1px; padding: 0.5em 1em; background-color: #fdfdfd; border: solid 1px #ddd; border-radius: 4px;}
 button:hover {border-color: Gray;}
 
-.btn-compact {margin: 1px; margin-bottom: 0.25em; padding: 1px;}
+#board .value {display: inline-block; margin: 1px; padding: 0.5em; border: solid 1px #aaa; border-radius: 4px; width: 2.5em; font-weight: bold; text-align: center;}
 
-#board button:focus {outline: none;}
-#board button:hover {border-color: Black; background-color: Snow;}
+select {padding: 0.5em;}
 
-select {padding: 0.5em 1em;}
-
-#board button {margin: 1px; padding: 0.5em 1em; background-color: white; border: solid 1px #aaa; width: 3em;}
-
-#board button.marked {border: solid 1px green;}
-
-#board button.red-border {border: solid 1px Crimson;}
-#board button.green-border {border: solid 1px ForestGreen;}
-#board button.yellow-border {border: solid 1px Yellow;}
-
-canvas {margin-bottom: -4px;}
+#board .value.green-border {border: solid 1px forestgreen;}
+#board .value.red-border {border: solid 1px crimson;}
 
