@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Pipes" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<title>Pipes</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+<link rel="stylesheet" href="/pipes/css/styles.css" />
+
+<script src="/pipes/js/index.js"></script>
+<script src="/js/lib.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div class="inline"><span aria-hidden="true" class="emoji medical-mask large"></span>Pipes</div>
+	</div>
+	<div class="navbar-nav">
+		<form class="inline">
+			<select id="mode" class="small">
+				<option value="oneshot" selected="true">One-shot</option>
+				<option value="classic">Classic</option>
+			</select>
+			<button type="button" id="control_new" name="NewGame"><span aria-hidden="true" class="emoji play"></span>New</button>
+		</form>
+	</div>
+</nav>
+</div> <!-- container -->
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+
+<div class="grid">
+	<div class="col-1 span-1 my-2">
+		<div>
+			<button type="button" id="button_next_4" data-selected="4" class="btn-compact">
+				<canvas id="next_4" width="34" height="34"></canvas>
+			</button>
+		</div>
+		<div>
+			<button type="button" id="button_next_3" data-selected="3" class="btn-compact">
+				<canvas id="next_3" width="34" height="34"></canvas>
+			</button>
+		</div>
+		<div>
+			<button type="button" id="button_next_2" data-selected="2" class="btn-compact">
+				<canvas id="next_2" width="34" height="34"></canvas>
+			</button>
+		</div>
+		<div>
+			<button type="button" id="button_next_1" data-selected="1" class="btn-compact">
+				<canvas id="next_1" width="34" height="34"></canvas>
+			</button>
+		</div>
+		<div>
+			<button type="button" id="button_next_0" data-selected="0" class="btn-compact">
+				<canvas id="next_0" width="34" height="34"></canvas>
+			</button>
+		</div>
+		<div class="mt-1">
+			<form method="post" action="pipes.html">
+				<div><button type="button" id="undo"><span class="emoji refresh"></span>Undo</button></div>
+			</form>
+		</div>
+	</div>
+	<div class="col-2 span-4">
+		<div class="grid mb-0">
+			<div class="col-1 span-2">
+				Move time: <span id="movetime">-</span>
+			</div>
+			<div class="col-3 span-2">
+				Game time: <span id="gametime">-</span>
+			</div>
+			<div class="col-5 span-2">
+				Score: <b id="score">-</b>
+			</div>
+		</div>
+		<div id="board">
+			<canvas id="main" width="298" height="232" style="width: 596px; height: 464px;"></canvas>
+		</div>
+	</div>
+	<div class="col-6 span-1">
+		<div id="highscore" class="mt-2 text-right">&nbsp;</div>
+	</div>
+</div>
+
+</div><!-- container -->
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+<div><a href="/pipes/help.html"><span class="emoji scroll large"></span>What's this?</a></div>
+<hr />
+<div>&copy; 2020 PLC-Soft</div>
+</div> <!-- container -->
+</footer>
+
+</body>
+</html>
