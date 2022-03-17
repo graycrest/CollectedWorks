@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Administration" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<meta name="theme-color" content="white" />
+<title>Administration</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+<link rel="stylesheet" href="/pipes/css/styles.css" />
+
+<script src="/pipes/js/administration.js"></script>
+<script src="/js/lib.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div class="inline"><span class="emoji medical-mask large"></span>Administration</div>
+	</div>
+	<div class="navbar-nav">
+		<div><a href="/pipes/index.html"><span class="emoji books"></span>Back</a></div>
+	</div>
+</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+	<form action="administration.html" method="POST">
+		<fieldset>
+			<legend>Clear highscores</legend>
+			<div class="my-1">
+				<div class="switch">
+					<input class="switch-input" type="checkbox" id="pipes" name="pipes" />
+					<label class="switch-label" for="pipes">Pipes</label>
+				</div>
+				<label for="pipes" class="inline">Yes, I'm sure</label>
+			</div>
+			<div>
+				<button type="submit" id="submit" disabled="true"><span class="emoji sponge"></span>Clear highscores</button>
+			</div>
+		</fieldset>
+	</form>
+	<div id="hint" class="mt-1">&nbsp;</div>
+</div>
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+	<div><a href="/pipes/index.html"><span class="emoji books large"></span>Back</a></div>
+	<hr />
+	<div>&copy; 2020 PLC-Soft</div>
+</div>
+</footer>
+
+</body>
+</html>
