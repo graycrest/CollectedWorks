@@ -18,6 +18,10 @@ One of the many variations of the mark the bombs and do not click on them game.
 This one is, obviously, the best of those.
 
 
+## Pipes
+Place pipes in an attempt to construct a fully closed shape.
+
+
 ## Slider
 A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
