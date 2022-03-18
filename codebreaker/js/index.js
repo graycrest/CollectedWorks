@@ -106,8 +106,8 @@ var game = {
 		var result = game.check(played, game.vars.combination);
 		game.vars.moves.push({played: [played[0], played[1], played[2], played[3]], black: result.black, white: result.white});
 		js('#board').append(js.template(''
-			+ '<div class="d-center my-0">'
-				+ '<span class="small">{LIGHTS}</small>'
+			+ '<div class="text-center my-0">'
+				+ '<span class="small">{BLACK}{NEITHER}{WHITE}</small>'
 				+ '<span class="value">{VALUE_1}</span>'
 				+ '<span class="value">{VALUE_2}</span>'
 				+ '<span class="value">{VALUE_3}</span>'
@@ -115,10 +115,9 @@ var game = {
 			+ '</div>'
 		).render(
 			{
-				lights:
-					'<span class="emoji green-circle"></span>'.repeat(result.black)
-					+ '<span class="emoji white-circle"></span>'.repeat(4 - result.black - result.white)
-					+ '<span class="emoji yellow-circle"></span>'.repeat(result.white),
+				black: '<span class="emoji green-circle"></span>'.repeat(result.black),
+				neither: '<span class="emoji white-circle"></span>'.repeat(4 - result.black - result.white),
+				white: '<span class="emoji yellow-circle"></span>'.repeat(result.white),
 				value_1: played[0],
 				value_2: played[1],
 				value_3: played[2],
@@ -131,12 +130,14 @@ var game = {
 		if (result.black == 4)
 		{
 			game.vars.state = STATE_END;
+			js('#board').append('<div class="text-center"><span class="emoji party-popper"></span><span class="emoji partying-face large my-1"></span><span class="emoji party-popper"></span></div>');
 			js('#board .value').class('green-border').add();
 			js('select').attribute('disabled').set(true);
 		}
 		else if (js('#board div').element().length >= 12)
 		{
 			game.vars.state = STATE_END;
+			js('#board').append('<div class="text-center"><span class="emoji surprised-face large"></span></div>');
 			js('#board .value').class('red-border').add();
 			js('select').attribute('disabled').set(true);
 		}

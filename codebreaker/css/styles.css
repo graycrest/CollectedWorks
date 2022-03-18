@@ -3,7 +3,7 @@
 button {margin: 1px; padding: 0.5em 1em; background-color: #fdfdfd; border: solid 1px #ddd; border-radius: 4px;}
 button:hover {border-color: Gray;}
 
-#board .value {display: inline-block; margin: 1px; padding: 0.5em; border: solid 1px #aaa; border-radius: 4px; width: 2.5em; font-weight: bold; text-align: center;}
+#board .value {display: inline-block; margin: 1px; padding-top: 0.5em; padding-bottom: 0.5em; border: solid 1px #aaa; border-radius: 4px; width: 2.3em; font-weight: bold; text-align: center;}
 
 select {padding: 0.5em;}
 
