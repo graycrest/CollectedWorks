@@ -107,7 +107,7 @@ var game = {
 		game.vars.moves.push({played: [played[0], played[1], played[2], played[3]], black: result.black, white: result.white});
 		js('#board').append(js.template(''
 			+ '<div class="text-center my-0">'
-				+ '<span class="small">{BLACK}{NEITHER}{WHITE}</small>'
+				+ '<span class="small">{BLACK}{NEITHER}{WHITE}</span>'
 				+ '<span class="value">{VALUE_1}</span>'
 				+ '<span class="value">{VALUE_2}</span>'
 				+ '<span class="value">{VALUE_3}</span>'
