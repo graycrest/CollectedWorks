@@ -558,7 +558,7 @@ var js = function(reference)
 					case 'disabled':
 						if (value)
 						{
-							element.setAttribute(which, true);
+							element.setAttribute(which, 'disabled');
 						}
 						else
 						{
@@ -582,7 +582,7 @@ var js = function(reference)
 					case 'disabled':
 						if (value)
 						{
-							element.setAttribute(which, true);
+							element.setAttribute(which, 'disabled');
 						}
 						else
 						{
@@ -619,7 +619,7 @@ var js = function(reference)
 						case 'disabled':
 							if (value)
 							{
-								element.setAttribute(which, true);
+								element.setAttribute(which, 'disabled');
 							}
 							else
 							{
