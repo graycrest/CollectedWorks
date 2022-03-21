@@ -29,12 +29,14 @@
 .emoji.memo:before {content: "\1f4dd";}
 .emoji.mouse-face:before {content: "\1f42d";}
 .emoji.newspaper:before {content: "\1f4f0";}
+.emoji.no-mobile-phone:before {content: "\1f4f5";}
 .emoji.numbers:before {content: "\1f522";}
 .emoji.open-book:before {content: "\1f4d6";}
 .emoji.package:before {content: "\1f4e6";}
 .emoji.page:before {content: "\1f4c3";}
 .emoji.pen:before {content: "\1f58a";}
 .emoji.pirate-flag:before {content: "\1f3f4";}
+.emoji.mobile-phone:before {content: "\1f4f1";}
 .emoji.play:before {content: "\25b6";}
 .emoji.plus:before {content: "\2795";}
 .emoji.refresh:before {content: "\1f501";}
