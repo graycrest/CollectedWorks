@@ -11,6 +11,7 @@
 .emoji.books:before {content: "\1f4da";}
 .emoji.brain:before {content: "\1f9e0";}
 .emoji.brick:before {content: "\1f9f1";}
+.emoji.card-index:before {content: "\1f5c2";}
 .emoji.chart-decreasing:before {content: "\1f4c9";}
 .emoji.chart-increasing:before {content: "\1f4c8";}
 .emoji.check:before {content: "\2714";}
@@ -40,6 +41,7 @@
 .emoji.scroll:before {content: "\1f4dc";}
 .emoji.search:before {content: "\1f50d";}
 .emoji.shuffle:before {content: "\1f500";}
+.emoji.sparkles:before {content: "\2728";}
 .emoji.speech-balloon:before {content: "\1f4ac";}
 .emoji.sponge:before {content: "\1f9fd";}
 .emoji.toolbox:before {content: "\1f9f0";}
@@ -50,7 +52,10 @@
 .emoji.thinking-face:before {content: "\1f914";}
 .emoji.party-popper:before {content: "\1f389";}
 .emoji.partying-face:before {content: "\1f973";}
-.emoji.surprised-face:before {content: "\1f62e";}
+
+.emoji.green-book:before {content: "\1f4d7";}
+.emoji.blue:before {content: "\1f4d8";}
+.emoji.orange:before {content: "\1f4d9";}
 
 .emoji.red-circle:before {content: "\1f534";}
 .emoji.orange-circle:before {content: "\1f7e0";}
@@ -61,7 +66,6 @@
 .emoji.brown-circle:before {content: "\1f7e4";}
 .emoji.black-circle:before {content: "\26ab";}
 .emoji.white-circle:before {content: "\26aa";}
-
 
 .emoji.black-square:before {content: "\2b1b";}
 .emoji.white-square:before {content: "\2b1c";}
