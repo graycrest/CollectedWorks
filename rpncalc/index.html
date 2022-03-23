@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="RPNCalculator" />
+<meta name="keywords" content="calculator,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<meta name="theme-color" content="white" />
+
+<meta name="twitter:card" content="summary" />
+<meta property="og:url" content="https://celerisk.com/rpncalc/index.html" />
+<meta property="og:title" content="RPN Calculator" />
+<meta property="og:description" content="Command-line based RPN calculator; complete feature set" />
+<meta property="og:image" content="https://celerisk.com/rpncalc/images/rpncalc.png" />
+
+<title>RPNCalculator</title>
+
+<link rel="manifest" href="/rpncalc/manifest.json" />
+<link rel="apple-touch-icon" sizes="180x180" href="/rpncalc/icons/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/rpncalc/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/rpncalc/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/rpncalc/icons/favicon-16x16.png">
+
+<link rel="stylesheet" href="/css/all.css" />
+<link rel="stylesheet" href="/rpncalc/css/styles.css" />
+
+<script src="/rpncalc/js/index.js"></script>
+<script src="/js/lib.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div><span class="emoji medical-mask large"></span><span class="small">RPNCalculator</small></div>
+	</div>
+	<div class="navbar-center">
+		<div id="subtle" class="small">&nbsp;</div>
+	</div>
+	<div class="navbar-nav">
+		<form class="nosubmit inline small" method="post" action="index.html">
+			<select id="precision" class="small">
+				<option value="0" disabled="true">Precision</option>
+			</select>
+			<select id="angle" class="small">
+				<option value="deg">&#x1f4d0; DEG</option>
+				<option value="rad">&#x1f4d0; RAD</option>
+				<option value="grad">&#x1f4d0; GRAD</option>
+			</select>
+			<select id="errors" class="small">
+				<option value="yes" disabled="true">Errors</option>
+				<option value="on">&#x1f621; On</option>
+				<option value="subtle">&#x1f92b; Subtle</option>
+				<option value="off">&#x2620; Off</option>
+			</select>
+		</form>
+	</div>
+</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container"> <!-- container start -->
+	<div class="stack2"> <!-- stack start -->
+		<div id="plotter" class="hidden"> <!-- stack 2 start -->
+
+			<div class="d-center">
+				<canvas class="canvas-border" width="450" height="450" style="width: 450px; height: 450px;"></canvas>
+			</div>
+			<div class="text-right mr-2 mb-1">
+				<button type="button" id="reset" disabled="true"><span class="emoji sponge"></span>Reset</button>
+			</div>
+
+		</div> <!-- stack 2 end -->
+		<div> <!-- stack 1 start -->
+
+			<div id="stackcontainer">
+				<div id="stack">
+					<div class="stack">
+						<div class="index">0</div>
+						<div class="ml-0 mute small">-</div>
+						<div class="content">Ready</div>
+					</div>
+				</div>
+			</div>
+			<form class="my-1" id="form" name="form" action="rpncalc.html" method="post">
+				<div class="input-group">
+					<input type="text" id="command" value="" placeholder="Type here" autocomplete="off" />
+					<button id="submit" type="submit"><span class="emoji scroll"></span></button>
+				</div>
+			</form>
+
+			<div>
+				<div id="misc">&nbsp;</div>
+			</div>
+
+			<div>
+				<div id="hint" class="mt-0">&nbsp;</div>
+			</div>
+
+		</div> <!-- start 1 end -->
+	</div> <!-- stack end -->
+</div> <!-- container -->
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+<div><a href="/rpncalc/help.html"><span class="emoji open-book large"></span>Reference</a></div>
+<hr />
+<div>&copy; 2020 PLC-Soft</div>
+</div>
+</footer>
+
+</body>
+</html>

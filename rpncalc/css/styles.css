@@ -1,0 +1,19 @@
+
+.stack {display: grid; grid-template-columns: auto auto 1fr; margin-top: 1px; margin-bottom: 1px; background-color: white;}
+.stack .index {text-align: right; font-size: 80%;}
+.stack .content {text-align: right; padding-right: 0.5em;}
+
+#stackcontainer {max-height: 12em; overflow-x: hidden; overflow-y: scroll; background-color: lightgray;}
+
+.input-group {display: grid; grid-template-columns: 1fr auto;}
+.input-group button {display: inline;}
+
+.canvas-border {border: solid 1px lightgray;}
+
+#misc {padding-left: 1em;}
+#hint {padding-left: 1em;}
+
+::placeholder {font-size: 80%;}
+
+.button {margin: 1px; padding: 0.5em 1em; background-color: White; border: solid 1px LightGray; border-radius: 4px;}
+
