@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="RPNCalculator reference" />
+<meta name="keywords" content="calculator,reference,help,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+
+<title>RPNCalculator reference</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+
+<script src="/js/lib.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<div class="inline"><span class="emoji medical-mask large"></span><span class="small">RPNCalculator reference</span></div>
+		</div>
+		<div class="navbar-nav">
+			<a href="/rpncalc/index.html"><span class="emoji abacus"></span>Back</a>
+		</div>
+	</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+	<div class="tabs-vertical-off">
+
+		<div class="tab">
+			<header data-remove="yes">Introduction</header>
+
+			<table>
+				<caption>RPN, "reverse polish notation", <span class="text-right small"><a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Wikipedia entry</a></span></caption>
+				<thead>
+					<tr><th>To calculate</th><th>You enter</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>1 + 2</td><td>1 2 +</td></tr>
+					<tr><td>1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10</td><td>1 2 3 4 5 6 7 8 9 10 +++++++++ <span class="t_blue"><sup>*</sup></span></td></tr>
+					<tr><td>sin(sqrt(4*7))</td><td>4 7 * sqrt sin</td></tr>
+					<tr><td>(sqrt(123.45) * (17 - 2.45)) / (sq(8 + (17 % 3)))</td><td>123.45 sqrt 17 2.45 - * 8 17 3 mod + sq /</td></tr>
+				</tbody>
+			</table>
+
+			<div class="small">
+				<sup class="t_blue">*</sup> Of course, you would actually use
+				<pre>10 11 * 2 /</pre>
+				or
+				<pre>10 dup 1 + * 2 /</pre>
+				or perhaps
+				<pre>0 1 10 for i i + next</pre>
+				or you possibly do not need a calculator to multiply 5 by 11, but, then, where's the fun in that?
+			</div>
+
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Settings</header>
+
+			<div class="section">Settings</div>
+
+			<dl>
+				<dt>deg</dt>
+				<dd>Sets the angle input mode to degrees</dd>
+				<dt>rad</dt>
+				<dd>Sets the angle input mode to radians</dd>
+				<dt>grad</dt>
+				<dd>Sets the angle input mode to gradians</dd>
+				<dt>precision</dt>
+				<dd>Sets the numerical precision, used on the stack-view and for some functions like Q or round. Returns the previous value</dd>
+			</dl>
+
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Stack</header>
+
+			<div class="section">Available stack operators</div>
+
+			<ul class="small">
+				<li><a href="#clear">clear</a></li>
+				<li><a href="#depth">depth</a></li>
+				<li><a href="#drop">drop</a></li>
+				<li><a href="#drop">drop2</a></li>
+				<li><a href="#drop">drop3</a></li>
+				<li><a href="#dropn">dropn</a></li>
+				<li><a href="#dup">dup</a></li>
+				<li><a href="#dup">dup2</a></li>
+				<li><a href="#dup">dup3</a></li>
+				<li><a href="#dupdup">dupdup</a></li>
+				<li><a href="#dupn">dupn</a></li>
+				<li><a href="#ndupn">ndupn</a></li>
+				<li><a href="#nip">nip</a></li>
+				<li><a href="#over">over</a></li>
+				<li><a href="#pick">pick</a></li>
+				<li><a href="#pick2">pick2</a></li>
+				<li><a href="#pick2">pick3</a></li>
+				<li><a href="#roll">roll</a></li>
+				<li><a href="#rolld">rolld</a></li>
+				<li><a href="#rot">rot</a></li>
+				<li><a href="#swap">swap</a></li>
+				<li><a href="#unpick">unpick</a></li>
+				<li><a href="#unrot">unrot</a></li>
+			</ul>
+
+			<div class="section">How they work</div>
+
+			<header id="clear">clear</header>
+			<table>
+				<caption>Clears out all stack and other content</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj1</td><td>CLEAR</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="depth">depth</header>
+			<table>
+				<caption>Returns the number of elements on the stack before DEPTH was called</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj1</td><td>DEPTH</td><td>objn<br />...<br />obj1<br />n</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="drop">drop, drop2, drop3</header>
+			<table>
+				<caption>Discards level 1, level 1 and 2 or levels 1 to 3 </caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj4<br />obj3<br />obj2<br />obj1</td><td>DROP</td><td>objn<br />...<br />obj4<br />obj3<br />obj2</td></tr>
+					<tr><td>objn<br />...<br />obj4<br />obj3<br />obj2<br />obj1</td><td>DROP2</td><td>objn<br />...<br />obj4<br />obj3</td></tr>
+					<tr><td>objn<br />...<br />obj4<br />obj3<br />obj2<br />obj1</td><td>DROP3</td><td>objn<br />...<br />obj4</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="dropn">dropn</header>
+			<table>
+				<caption>Discards N elements</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj1</td><td>n DROPN</td><td></td></tr>
+					<tr><td>obj2<br />obj1</td><td>2 DROPN</td><td></td></tr>
+					<tr><td>obj</td><td>1 DROPN</td><td></td></tr>
+					<tr><td></td><td>0 DROPN</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="dup">dup, dup2, dup3</header>
+			<table>
+				<caption>Copies level 1, level 1 and 2 or levels 1 to 3</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj2<br />obj1</td><td>DUP</td><td>obj2<br />obj1<br />obj1</td></tr>
+					<tr><td>obj3<br />obj2<br />obj1</td><td>DUP2</td><td>obj3<br />obj2<br />obj1<br />obj2<br />obj1</td></tr>
+					<tr><td>obj4<br />obj3<br />obj2<br />obj1</td><td>DUP3</td><td>obj4<br />obj3<br />obj2<br />obj1<br />obj3<br />obj2<br />obj1</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="dupdup">dupdup</header>
+			<table>
+				<caption>Copies level 1 twice</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj2<br />obj1</td><td>DUPDUP</td><td>obj2<br />obj1<br />obj1<br />obj1</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="dupn">dupn</header>
+			<table>
+				<caption>Copies N elements</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj1</td><td>n DUPN</td><td>objn-1<br />...<br />obj1<br />objn<br />...<br />obj1</td></tr>
+					<tr><td>obj2<br />obj1</td><td>2 DUPN</td><td>obj2<br />obj1<br />obj2<br />obj1</td></tr>
+					<tr><td>obj</td><td>1 DUPN</td><td>obj<br />obj</td></tr>
+					<tr><td></td><td>0 DUPN</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="ndupn">ndupn</header>
+			<table>
+				<caption>Copies level 1 N times and returns the count</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj</td><td>n NDUPN</td><td>obj<br />...<br />obj<br />n</td></tr>
+					<tr><td>obj</td><td>2 NDUPN</td><td>obj<br />obj<br />2</td></tr>
+					<tr><td>obj</td><td>1 NDUPN</td><td>obj<br />1</td></tr>
+					<tr><td>obj</td><td>0 NDUPN</td><td>0</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="nip">nip</header>
+			<table>
+				<caption>Discards level 2</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj3<br />obj2<br />obj1</td><td>NIP</td><td>objn<br />...<br />obj3<br />obj1</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="over">over</header>
+			<table>
+				<caption>Copies level 2</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj2<br />obj1</td><td>OVER</td><td>obj2<br />obj1<br />obj2</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="pick">pick</header>
+			<table>
+				<caption>Copies element n</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj1</td><td>n PICK</td><td>objn<br />...<br />obj1<br />objn</td></tr>
+					<tr><td>obj2<br />obj1</td><td>2 PICK</td><td>obj2<br />obj1<br /> obj2</td></tr>
+					<tr><td>obj</td><td>1 PICK</td><td>obj<br />obj</td></tr>
+					<tr><td></td><td>0 PICK</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="pick2">pick2, pick3</header>
+			<p>Shorthand versions of "2 pick" and "3 pick" respectively</p>
+
+			<hr class="my-1" />
+
+			<header id="roll">roll</header>
+			<table>
+				<caption>Rolls up N elements</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />objn-1<br />...<br />obj1</td><td>n ROLL</td><td>objn-1<br />...<br />obj1<br />objn</td></tr>
+					<tr><td>obj2<br />obj1</td><td>2 ROLL</td><td>obj1<br /> obj2</td></tr>
+					<tr><td>obj</td><td>1 ROLL</td><td>obj</td></tr>
+					<tr><td></td><td>0 ROLL</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="rolld">rolld</header>
+			<table>
+				<caption>Rolls down N elements</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />...<br />obj2<br />obj1</td><td>n ROLLD</td><td>obj1<br />objn<br />...<br />obj2</td></tr>
+					<tr><td>obj2<br />obj1</td><td>2 ROLLD</td><td>obj1<br /> obj2</td></tr>
+					<tr><td>obj</td><td>1 ROLLD</td><td>obj</td></tr>
+					<tr><td></td><td>0 ROLLD</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="rot">rot</header>
+			<table>
+				<caption>Rolls up 3 elements</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj3<br />obj2<br />obj1</td><td>ROT</td><td>obj2<br />obj1<br />obj3</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="swap">swap</header>
+			<table>
+				<caption>Exchanges levels 1 and 2</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj2<br />obj1</td><td>SWAP</td><td>obj1<br />obj2</td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="unpick">unpick</header>
+			<table>
+				<caption>Replaces element n</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>objn<br />objn-1<br />...<br />obj1<br />obj</td><td>n UNPICK</td><td>obj<br />objn-1<br />...<br />obj1</td></tr>
+					<tr><td>obj2<br />obj1<br />obj</td><td>2 UNPICK</td><td>obj<br /> obj1</td></tr>
+					<tr><td>obj1<br />obj</td><td>1 UNPICK</td><td>obj</td></tr>
+					<tr><td>obj</td><td>0 UNPICK</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<hr class="my-1" />
+
+			<header id="unrot">unrot</header>
+			<table>
+				<caption>Rolls down 3 elements</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj3<br />obj2<br />obj1</td><td>UNROT</td><td>obj1<br />obj3<br />obj2</td></tr>
+				</tbody>
+			</table>
+
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Mathematical functions</header>
+
+			<div class="section">Arithmetic</div>
+
+			<dl>
+				<dt>+</dt>
+				<dd>Addition</dd>
+				<dt>-</dt>
+				<dd>Subtraction</dd>
+				<dt>*</dt>
+				<dd>Multiplication</dd>
+				<dt>/</dt>
+				<dd>Division</dd>
+				<dt>mod</dt>
+				<dd>Modulo</dd>
+			</dl>
+
+			<div class="section">Constants</div>
+
+			<dl>
+				<dt>E</dt>
+				<dd>Euler's constant, 2.7182...</dd>
+				<dt>PI</dt>
+				<dd>&pi;, 3.1415...</dd>
+				<dt>LN2</dt>
+				<dd>Natural logarithm of 2</dd>
+				<dt>LN10</dt>
+				<dd>Natural logarithm of 10</dd>
+				<dt>LOG2E</dt>
+				<dd>Base 2 logarithm of E</dd>
+				<dt>LOG10E</dt>
+				<dd>Base 10 logarithm of E</dd>
+				<dt>SQRT2</dt>
+				<dd>Square root of 2</dd>
+				<dt>SQRT1_2</dt>
+				<dd>Square root of 0.5</dd>
+			</dl>
+
+			<div class="section">General math functions</div>
+
+			<dl>
+				<dt>abs</dt>
+				<dd>Absolute value</dd>
+				<dt>cb</dt>
+				<dd>Cube</dd>
+				<dt>cbrt</dt>
+				<dd>Cube root</dd>
+				<dt>ceil</dt>
+				<dd>Ceil function (round up)</dd>
+				<dt>comb</dt>
+				<dd>Calculates the number of combinations</dd>
+				<dt>exp</dt>
+				<dd>Exponential function, base E</dd>
+				<dt>fact</dt>
+				<dd>Factorial</dd>
+				<dt>floor</dt>
+				<dd>Floor function (round down)</dd>
+				<dt>fp</dt>
+				<dd>Fractional part</dd>
+				<dt>gamma</dt>
+				<dd>Gamma function (factorial function for any argument)</dd>
+				<dt>ip</dt>
+				<dd>Integer part</dd>
+				<dt>ln</dt>
+				<dd>Natural logarithm, base e</dd>
+				<dt>log</dt>
+				<dd>Logarithm, base 10</dd>
+				<dt>neg</dt>
+				<dd>Negates its argument</dd>
+				<dt>perm</dt>
+				<dd>Calculates the number of permutations</dd>
+				<dt>pow</dt>
+				<dd>Power function, y<sup>x</sup></dd>
+				<dt>Q</dt>
+				<dd>Guesstimates the nearest (according to the current <i>precision</i>) fraction or quotient</dd>
+				<dt>round</dt>
+				<dd>Rounds to <i>precision</i> digits</dd>
+				<dt>sq</dt>
+				<dd>Calculates the square</dd>
+				<dt>sqrt</dt>
+				<dd>Square root</dd>
+			</dl>
+
+			<div class="section">Trigonometry</div>
+
+			<dl>
+				<dt>sin</dt>
+				<dd>Sine</dd>
+				<dt>asin</dt>
+				<dd>arcsine</dd>
+				<dt>sinh</dt>
+				<dd>Hyperbolic sine</dd>
+				<dt>asinh</dt>
+				<dd>Inverse hyperbolic sine</dd>
+			</dl>
+			<dl>
+				<dt>cos</dt>
+				<dd>Cosine</dd>
+				<dt>acos</dt>
+				<dd>arccosine</dd>
+				<dt>cosh</dt>
+				<dd>Hyperbolic cosine</dd>
+				<dt>acosh</dt>
+				<dd>Inverse hyperbolic cosine</dd>
+			</dl>
+			<dl>
+				<dt>tan</dt>
+				<dd>Tangent</dd>
+				<dt>atan</dt>
+				<dd>Inverse tangent</dd>
+				<dt>tanh</dt>
+				<dd>Hyperbolic tangent</dd>
+				<dt>atanh</dt>
+				<dd>Inverse hyperbolic tangent</dd>
+			</dl>
+			<dl>
+				<dt>sec</dt>
+				<dd>Secant</dd>
+				<dt>asec</dt>
+				<dd>arcsecant</dd>
+				<dt>sech</dt>
+				<dd>Hyperbolic secant</dd>
+				<dt>asech</dt>
+				<dd>Inverse hyperbolic secant</dd>
+			</dl>
+			<dl>
+				<dt>csc</dt>
+				<dd>Cosecant</dd>
+				<dt>acsc</dt>
+				<dd>arccosecant</dd>
+				<dt>csch</dt>
+				<dd>Hyperbolic cosecant</dd>
+				<dt>acsch</dt>
+				<dd>Inverse hyperbolic secant</dd>
+			</dl>
+			<dl>
+				<dt>cot</dt>
+				<dd>Cotangent</dd>
+				<dt>acot</dt>
+				<dd>arccotangent</dd>
+				<dt>coth</dt>
+				<dd>Hyperbolic cotangent</dd>
+				<dt>acoth</dt>
+				<dd>Inverse hyperbolic cotangent</dd>
+			</dl>
+
+			<div class="section">Somewhat mathy functions</div>
+
+			<dl>
+				<dt>date</dt>
+				<dd>Today's date, YYYY-MM-DD</dd>
+				<dt>div</dt>
+				<dd>Determines all positive divisors. <span class="mute">This function may take a while on large numbers</span></dd>
+				<dt>factor</dt>
+				<dd>Integer prime factorization. <span class="mute">This function may take a while on large numbers</span></dd>
+				<dt>gcd</dt>
+				<dd>Greatest common divisor</dd>
+				<dt>lcm</dt>
+				<dd>Lowest common multiple</dd>
+				<dt>max</dt>
+				<dd>Maximum</dd>
+				<dt>min</dt>
+				<dd>Minimum</dd>
+				<dt>rand</dt>
+				<dd>Returns a random number, 0 &lt;= rand &lt; 1</dd>
+				<dt>sign</dt>
+				<dd>Returns the sign as -1, 0 or 1</dd>
+				<dt>time</dt>
+				<dd>Current time, HH:MM</dd>
+				<dt>timer</dt>
+				<dd>Number of milliseconds elapsed since January 1, 1970 00:00:00 UTC</dd>
+			</dl>
+
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Programming</header>
+
+			<div class="section">Conditionals</div>
+
+			<table>
+				<caption>These replace levels 1 and 2 with 1 if they test <em>true</em>, i.e. non-zero, or 0 otherwise</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>2<br />5</td><td>&lt;<br /><span class="mute">less than</span></td><td>1</td></tr>
+					<tr><td>2<br />5</td><td>&lt;=<br /><span class="mute">less than or equal</span></td><td>1</td></tr>
+					<tr><td>2<br />5</td><td>==<br /><span class="mute">equal</span></td><td>0</td></tr>
+					<tr><td>2<br />5</td><td>!=<br /><span class="mute">not equal</span></td><td>1</td></tr>
+					<tr><td>2<br />5</td><td>&gt;=<br /><span class="mute">greater or equal</span></td><td>0</td></tr>
+					<tr><td>2<br />5</td><td>&gt;<br /><span class="mute">greater</span></td><td>0</td></tr>
+				</tbody>
+			</table>
+
+			<div class="section">Conditional loops</div>
+
+			<header>while</header>
+
+			<pre>WHILE <em>condition</em> REPEAT <em>statements</em> END</pre>
+
+			<div class="mute">6 8 while dup repeat swap over mod end</div>
+
+			<header>do</header>
+
+			<pre>DO <em>statements</em> UNTIL <em>condition</em> END</pre>
+
+			<div class="mute">rand do rand + until rand rand &gt; end</div>
+
+			<div class="section">Testing conditions</div>
+
+			<header>if</header>
+
+			<pre>IF <em>condition</em> THEN <em>statements</em> END</pre>
+			<pre>IF <em>condition</em> THEN <em>statements</em> ELSE <em>statements</em> END</pre>
+
+			<div class="mute">if dup 2 mod then 3 * 1 + else 2 / end</div>
+
+			<div class="section">Counted loops</div>
+
+			<header>start</header>
+
+			<pre><em>counterStart</em> <em>counterEnd</em> START <em>statements</em> NEXT</pre>
+			<pre><em>counterStart</em> <em>counterEnd</em> START <em>statements</em> <em>increment</em> STEP</pre>
+
+			<div class="mute">1 5 start "Hello, world!" next</div>
+
+			<header>for</header>
+
+			<pre><em>counterStart</em> <em>counterEnd</em> FOR <em>identifier</em> <em>statements</em> NEXT</pre>
+			<pre><em>counterStart</em> <em>counterEnd</em> FOR <em>identifier</em> <em>statements</em> <em>increment</em> STEP</pre>
+			<div class="mute">1 10 for index index index * 2 step</div>
+
+			<div class="section">When IF is just not enough</div>
+
+			<header>case</header>
+
+			<pre>CASE
+<em>condition</em> THEN <em>statements</em> END
+<em>condition</em> THEN <em>statements</em> END
+...
+<em>condition</em> THEN <em>statements</em> END
+<em>Default statements</em>
+END</pre>
+
+			<div class="section">Notes</div>
+
+			<dl>
+				<dt>Performance</dt>
+				<dd><pre>timer 0 while dup 1000000 &lt; repeat 1 + end timer rot - nip</pre></dd>
+				<dd class="small">This will tell you how long it takes to count to 1 million, in milliseconds</dd>
+			</dl>
+
+			<ul>
+				<li>Endless loops are a thing. A thing you do not want!</li>
+				<li><em>condition</em> assumes the current value at level 1 is a number that can be compared to 0, with 0 being false and not-zero being true</li>
+
+			</ul>
+
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Memory</header>
+
+			<div class="section">Memory</div>
+
+			<div>Identifiers must match /^[a-z][a-z\d_]*/i, as in, a letter, optionally followed by letters, numbers or underscore</div>
+			<div class="mute">a, a1, abc, a_b_c, and friends</div>
+
+			<header>sto</header>
+			<table>
+				<caption>Stores level 2 as <em>identifier</em></caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj<br /><em>identifier</em></td><td>STO</td><td></td></tr>
+					<tr><td><em>identifier</em></td><td>RCL</td><td>obj</td></tr>
+				</tbody>
+			</table>
+
+			<header>rcl</header>
+			<table>
+				<caption>Recalls the content stored in <em>identifier</em></caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>obj<br /><em>identifier</em></td><td>STO</td><td></td></tr>
+					<tr><td><em>identifier</em></td><td>RCL</td><td>obj</td></tr>
+				</tbody>
+			</table>
+
+			<header>purge</header>
+			<p>Permanentely removes <em>identifier</em></p>
+
+			<header>eval</header>
+			<p>Evaluates the commands or expression on level 1</p>
+
+			<table>
+				<caption>Memory usage example</caption>
+				<thead>
+					<tr>
+						<th>Stack</th><th>Operation</th><th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>'2 3 * 1 +'<br />seven</td><td>STO</td><td></td></tr>
+					<tr><td>seven</td><td>RCL</td><td>'2 3 * 1 +'</td></tr>
+					<tr><td>'2 3 * 1 +'</td><td>EVAL</td><td>7</td></tr>
+					<tr><td>seven</td><td>EVAL</td><td>7</td></tr>
+					<tr><td>seven</td><td>PURGE</td><td></td></tr>
+				</tbody>
+			</table>
+
+			<header>rclall</header>
+			<p>Recalls... things and stuffs and more</p>
+
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Graphing</header>
+
+			<div class="section">Graphing functions</div>
+
+			<header>plot</header>
+			<div>Produces a graphical representation of the algebraic function string in level 1</div>
+			<div>e.g. <pre>'sin(sqrt(xx-yy))' plot</pre>, or <pre>'sqrt(abs(xy))' plot</pre>
+				<ul>
+					<li>A function in x is evaluated within min.x and max.x, and rendered within the min.y and max.y window</li>
+					<li>A function in y is evaluated within min.y and max.y, and rendered within the min.x and max.x window</li>
+					<li>A function in x and y is evaluated within min.x and max.x and min.y and max.y and rendered with the function value f(x, y) = z as height</li>
+					<li>All trigonometric functions operate in radians</li>
+				</ul>
+
+				<header>gxmin</header>
+				<p>Sets the minimum x value and returns the previous value</p>
+				<header>gxmax</header>
+				<p>Sets the maximum x value and returns the previous value</p>
+				<header>gymin</header>
+				<p>Sets the minimum y value and returns the previous value</p>
+				<header>gymax</header>
+				<p>Sets the maximum y value and returns the previous value</p>
+
+				<header>greset</header>
+				<p>Resets most graphing values to their defaults. <span class="mute">When stuff starts to look weirder than usual</span></p>
+				<dl>
+					<dt>n.b.</dt>
+					<dd>The graphic reacts to mouse-wheel and -drag operations</dd>
+				</dl>
+
+			</div>
+		</div>
+		<div class="tab">
+			<header data-remove="yes">Examples and other random oddities</header>
+
+			<div class="section">Stuffs</div>
+
+			<pre class="small">2 precision rad 0.5 asin PI / Q rot precision drop</pre>
+			<hr class="my-2" />
+			<pre class="mall">
+Given:
+	3x<sup>2</sup> + 2x - 1 = 0
+
+Enter:
+	3 2 -1
+
+followed by:
+	<span class="small">swap&nbsp;rot&nbsp;dup&nbsp;+&nbsp;swap&nbsp;neg&nbsp;dup&nbsp;dup&nbsp;*&nbsp;3&nbsp;pick&nbsp;5&nbsp;roll&nbsp;dup&nbsp;+&nbsp;&nbsp;*&nbsp;-&nbsp;sqrt&nbsp;over&nbsp;over&nbsp;-&nbsp;unrot&nbsp;+&nbsp;unrot&nbsp;over&nbsp;/&nbsp;unrot&nbsp;/</small>
+			</pre>
+			<hr class="my-2" />
+			<pre class="small">'sin(y)*cos(x)' plot</pre>
+			<hr class="my-2" />
+			<pre class="small">'sqrt(abs(xy))' plot</pre>
+			<hr class="my-2" />
+			<pre class="small">'sin(0.2*x*y)' plot</pre>
+			<hr class="my-2" />
+			<pre class="small">On a function like '(x+2)(x+4)(x+6)(x-1)(x-3)(x-5)', you may have to adjust the min or max parameters before seeing things (more clearly)</pre>
+
+		</div>
+
+	</div> <!-- tabs -->
+</div> <!-- container -->
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+	<div><a href="/rpncalc/index.html"><span class="emoji abacus large"></span>Back</a></div>
+	<hr />
+	<div>&copy; 2020 PLC-Soft</div>
+</div>
+</footer>
+
+</body>
+</html>
