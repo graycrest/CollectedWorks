@@ -115,9 +115,9 @@ var game = {
 			+ '</div>'
 		).render(
 			{
-				black: '&#x1f7e2;'.repeat(result.black),
-				neither: '&#x26aa;'.repeat(4 - result.black - result.white),
-				white: '&#x1f7e1;'.repeat(result.white),
+				black: '<span>&#x1f7e2;</span>'.repeat(result.black),
+				neither: '<span>&#x26aa;</span>'.repeat(4 - result.black - result.white),
+				white: '<span>&#x1f7e1;</span>'.repeat(result.white),
 				value_1: played[0],
 				value_2: played[1],
 				value_3: played[2],
