@@ -27,5 +27,6 @@ A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
 
 
-
+```
 As well as an amazing and full-featured RPN Calculator
+```
