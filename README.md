@@ -25,3 +25,7 @@ Place pipes in an attempt to construct a fully closed shape.
 ## Slider
 A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
+
+
+
+As well as an amazing and full-featured RPN Calculator
