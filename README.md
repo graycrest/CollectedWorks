@@ -1,8 +1,13 @@
 # CollectedWorks
 
-A collection of "browser games"
-
 https://celerisk.com/
+
+
+```
+A command-line based, and fully featured, RPN Calculator
+```
+
+And a collection of "browser games"
 
 
 ## Button Mania
@@ -27,6 +32,4 @@ A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
 
 
-```
-As well as an amazing and full-featured RPN Calculator
-```
+https://celerisk.com/
