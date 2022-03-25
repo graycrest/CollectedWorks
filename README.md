@@ -33,5 +33,5 @@ A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
 
 
-###### See it in action
+#### See it in action
 https://celerisk.com/
