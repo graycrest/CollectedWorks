@@ -28,7 +28,7 @@ This one is, obviously, the best of those.
 Place pipes in an attempt to construct a fully closed shape.
 
 
-###### Slider
+##### Slider
 A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
 
