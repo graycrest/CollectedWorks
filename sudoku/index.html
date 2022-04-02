@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Sudoku" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<title>Sudoku</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+
+<script src="/sudoku/js/index.js"></script>
+<script src="/js/lib.js"></script>
+
+<style>
+#board button {margin: 0; padding: 0; text-align: center; border: 0; border-radius: 0;}
+#board div {display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 0; padding: 1px;}
+
+/*
+.button-small {width: 24px; height: 24px; font-size: 80%; background-color: white;}
+.button-large {width: 72px; height: 72px; font-size: 150%; background-color: snow;}
+
+.container-3x3-small {width: 74px; background-color: lightgray;}
+.container-3x3-large {width: 224px; background-color: darkgray;}
+.container-3x3-huge {width: 674px; background-color: white;}
+*/
+
+.button-small {width: 18px; height: 18px; font-size: 80%; background-color: white;}
+.button-large {width: 54px; height: 54px; font-size: 150%; background-color: ghostwhite;}
+.button-found {width: 54px; height: 54px; font-size: 150%; background-color: moccasin;}
+.button-given {width: 54px; height: 54px; font-size: 150%; background-color: oldlace;}
+
+.button-solved {width: 54px; height: 54px; font-size: 150%; background-color: white;}
+
+.container-3x3-small {width: 56px; background-color: lightgray;}
+.container-3x3-large {width: 170px; background-color: darkgray;}
+.container-3x3-huge {width: 512px; background-color: white;}
+
+.button-small:focus {outline: none;}
+.button-small:active {outline: none;}
+.button-large:focus {outline: none;}
+.button-large:active {outline: none;}
+.button-given:focus {outline: none;}
+.button-given:active {outline: none;}
+.button-found:focus {outline: none;}
+.button-found:active {outline: none;}
+.button-solved:focus {outline: none;}
+.button-solved:active {outline: none;}
+
+.highlight {background-color: palegoldenrod;}
+.red {color: red;}
+.blue {color: blue;}
+</style>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div class="inline"><span class="emoji medical-mask large"></span>Sudoku</div>
+	</div>
+	<div class="navbar-nav">
+		<form class="inline">
+			<button type="button" id="control_new"><span class="emoji play"></span>New</button>
+		</form>
+	</div>
+</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+
+	<div class="grid">
+		<div class="col-1 span-4">
+			<div class="d-center">
+				<div id="board">&nbsp;</div>
+			</div>
+		</div>
+		<div class="col-5 span-2">
+			<form method="post" action="sudoku.html">
+				<fieldset>
+					<legend class="small">Help</legend>
+					<button type="button" id="control_solve"><span class="emoji thinking-face"></span>Solve</button>
+					<div class="mb-0">
+						<input type="checkbox" id="force" />
+						<label for="force" class="inline">Use force</label>
+					</div>
+				</fieldset>
+			</form>
+			<form method="post" action="sudoku.html">
+				<fieldset>
+					<legend class="small">Pencil-marks</legend>
+					<div class="mb-0">
+						<input type="checkbox" id="usepencilmarks" />
+						<label for="usepencilmarks" class="inline">Use</label>
+					</div>
+					<button type="button" id="control_clear" disabled="true"><span class="emoji sponge"></span>Clear</button>
+					<button type="button" id="control_refresh" disabled="true"><span class="emoji pen"></span>Refresh</button>
+				</fieldset>
+			</form>
+			<form method="post" action="sudoku.html">
+				<fieldset>
+					<legend class="small">Completed</legend>
+					<div>
+						<span id="completed1" class="mute">1</span>
+						<span id="completed2" class="mute">2</span>
+						<span id="completed3" class="mute">3</span>
+						<span id="completed4" class="mute">4</span>
+						<span id="completed5" class="mute">5</span>
+						<span id="completed6" class="mute">6</span>
+						<span id="completed7" class="mute">7</span>
+						<span id="completed8" class="mute">8</span>
+						<span id="completed9" class="mute">9</span>
+						<span id="completed" class="emoji check hidden"></span>
+					</div>
+				</fieldset>
+			</form>
+			<form method="post" action="sudoku.html">
+				<fieldset>
+					<legend class="small">Start over</legend>
+					<button type="button" id="control_reset"><span class="emoji refresh"></span>Reset</button>
+				</fieldset>
+			</form>
+			<div class="mt-0">
+				<div id="hint" class="small">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- container -->
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+<div class="mb-1">
+	<div class="spoiler">
+		<header><span class="emoji page"></span>Copy</header>
+		<div id="copy">&nbsp;</div>
+	</div>
+	<form method="post" action="sudoku.html">
+		<div class="spoiler">
+			<header><span class="emoji memo"></span>Text input</header>
+			<textarea cols="20" rows="12"></textarea>
+			<button type="button" id="textsubmit"><span class="emoji check"></span>OK</button>
+			<div class="inline ml-1" id="texthint">&nbsp;</div>
+		</div>
+	</form>
+</div>
+<div><a href="/sudoku/help.html"><span class="emoji scroll large"></span>What's this?</a></div>
+<hr />
+<div>&copy; 2020 PLC-Soft</div>
+</div>
+</footer>
+
+</body>
+</html>
