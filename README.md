@@ -3,12 +3,16 @@
 https://celerisk.com/
 
 
-### The Big One
+### The Big Two
 ```
-A command-line based, and fully featured, RPN Calculator
+A command-based, fully featured RPN Calculator
 ```
 
-### And a collection of "browser games"
+```
+Yet Another Sudoku Implementation
+```
+
+### A collection of "browser games"
 
 
 ##### Button Mania
