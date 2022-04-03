@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Automaton" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<title>Automaton</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+
+<script src="/automaton/js/index.js"></script>
+<script src="/js/lib.js"></script>
+
+<style>
+#board button {width: 3em;}
+#board button:focus {outline: none;}
+</style>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div class="inline"><span class="emoji medical-mask large"></span>Automaton</div>
+	</div>
+	<div class="navbar-nav">
+		<form class="inline">
+			<select id="mode" class="small">
+				<option value="pvp" selected="true">Player vs Player</option>
+				<option value="pvc">Player vs Computer</option>
+				<option value="cvp">Computer vs Player</option>
+			</select>
+			<div class="inline">on a</div>
+			<select id="difficulty" class="small">
+				<option value="small">Small</option>
+				<option value="classic" selected="true">Classic</option>
+				<option value="large">Large</option>
+				<option value="huge">Huge</option>
+			</select>
+			<div class="inline">board,</div>
+			<button type="button" id="control_new" class="ml-1"><span class="emoji play"></span>Play</button>
+		</form>
+	</div>
+</nav>
+</div><!-- container -->
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+
+	<div class="d-center">
+		<div class="text-right">
+			<span class="t_info">Blue</span>: <span id="score_blue">-</span><br />
+			<span class="t_warning">Orange</span>: <span id="score_orange">-</span>
+		</div>
+		<div id="hint" class="text-center my-0">Blue to play</div>
+	</div>
+
+	<form method="post" action="automaton.html">
+		<div class="d-center">
+			<div id="board">Board here</div>
+		</div>
+	</form>
+
+</div><!-- container -->
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+<div><a href="/automaton/help.html"><span class="emoji scroll large"></span>What's this?</a></div>
+<hr />
+<div>&copy; 2020 PLC-Soft</div>
+</div><!-- container -->
+</footer>
+
+</body>
+</html>
