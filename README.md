@@ -12,6 +12,7 @@ A command-based, fully featured RPN Calculator
 Yet Another Sudoku Implementation
 ```
 
+
 ### A collection of "browser games"
 
 
@@ -35,6 +36,12 @@ Place pipes in an attempt to construct a fully closed shape.
 ##### Slider
 A sliding-type puzzle game to bring order from chaos
 (PWA, can be installed)
+
+
+### Experimental Stuffs
+
+##### Automaton
+Color the board your way... and then somehow still manage not to win the game anyway
 
 
 #### See it in action
