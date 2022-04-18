@@ -8,7 +8,9 @@ var game = {
 	vars: {
 		state: STATE_INIT,
 		combination: [],
-		moves: []
+		moves: [],
+		prefill: [0, 0, 0, 0],
+		new: true
 	},
 
 	init: function()
@@ -19,9 +21,18 @@ var game = {
 	new: function()
 	{
 		js('#board').clear();
+
 		js('select').value(0).attribute('disabled').set(false);
-		js('#submit').attribute('disabled').set(true);
+		js('#select_1').value(game.vars.prefill[0]);
+		js('#select_2').value(game.vars.prefill[1]);
+		js('#select_3').value(game.vars.prefill[2]);
+		js('#select_4').value(game.vars.prefill[3]);
+
+		// js('#submit').attribute('disabled').set(true);
+		main.controls.select();
+
 		game.vars.moves = [];
+		game.vars.new = true;
 		return true;
 	},
 
@@ -64,6 +75,15 @@ var game = {
 
 	submit: function(played)
 	{
+		if (game.vars.new)
+		{
+			game.vars.new = false;
+			game.vars.prefill[0] = played[0];
+			game.vars.prefill[1] = played[1];
+			game.vars.prefill[2] = played[2];
+			game.vars.prefill[3] = played[3];
+		}
+
 		var list = [];
 		for (var a = 1; a <= 6; a += 1)
 		{
@@ -107,7 +127,7 @@ var game = {
 		game.vars.moves.push({played: [played[0], played[1], played[2], played[3]], black: result.black, white: result.white});
 		js('#board').append(js.template(''
 			+ '<div class="text-center my-0">'
-				+ '<span class="small">{BLACK}{NEITHER}{WHITE}</span>'
+				+ '{BLACK}{NEITHER}{WHITE}'
 				+ '<span class="value">{VALUE_1}</span>'
 				+ '<span class="value">{VALUE_2}</span>'
 				+ '<span class="value">{VALUE_3}</span>'
@@ -115,9 +135,9 @@ var game = {
 			+ '</div>'
 		).render(
 			{
-				black: '<span class="emoji green-circle"></span>'.repeat(result.black),
-				neither: '<span class="emoji white-circle"></span>'.repeat(4 - result.black - result.white),
-				white: '<span class="emoji yellow-circle"></span>'.repeat(result.white),
+				black: '<span class="emoji green-circle small"></span>'.repeat(result.black),
+				neither: '<span class="emoji white-circle small"></span>'.repeat(4 - result.black - result.white),
+				white: '<span class="emoji yellow-circle small"></span>'.repeat(result.white),
 				value_1: played[0],
 				value_2: played[1],
 				value_3: played[2],
