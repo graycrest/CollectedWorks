@@ -1052,7 +1052,11 @@ var plot = {
 			for (var i = 10; i < canvas.width; i += 10)
 			{
 				x += d;
-				data.push(parseFloat(plot.evaluate(expression, x, null)));
+				var t = parseFloat(plot.evaluate(expression, x, null));
+				if (!isNaN(t))
+				{
+					data.push(t);
+				}
 			}
 
 			data.sort(function(a, b)
@@ -1100,7 +1104,11 @@ var plot = {
 			for (var i = 10; i < canvas.height; i += 10)
 			{
 				y += d;
-				data.push(parseFloat(plot.evaluate(expression, null, y)));
+				var t = parseFloat(plot.evaluate(expression, null, y));
+				if (!isNaN(t))
+				{
+					data.push(t);
+				}
 			}
 
 			data.sort(function(a, b)
