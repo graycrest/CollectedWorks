@@ -368,6 +368,29 @@ var js = function(reference)
 		return self;
 	};
 
+	self.wrap = function(what)
+	{
+		reference.forEach(function(element)
+		{
+			switch (typeof what)
+			{
+				case 'string':
+					var list = js.toDOM(what);
+					for (var i = 0; i < list.length; i += 1)
+					{
+						element.parentNode.insertBefore(list[i], element);
+						list[i].appendChild(element);
+					}
+					break;
+				default:
+					element.parentNode.insertBefore(what, element);
+					what.appendChild(element);
+					break;
+			}
+		});
+		return self;
+	};
+
 	self.before = function(what)
 	{
 		reference.forEach(function(element)
@@ -880,6 +903,189 @@ js.storage = function(app)
 
 	return self;
 };
+
+js.autocomplete = (function()
+	{
+		var initialized = false;
+
+		function callback(data, event)
+		{
+			js(data.id).parents('[class="autocomplete"]').filter('ul').remove();
+
+			var content = js(data.id).value();
+			if (content.length < data.options.minSize)
+			{
+				js('#hint').html('&nbsp;');
+				return true;
+			}
+
+			var html = '<ul>';
+			data.callback(content).forEach(function(suggestions, index)
+				{
+					if (index < data.options.maxSuggestions)
+					{
+						html += js.template('<li data-suggestion="{SUGGESTION}" data-index="{INDEX}">{SHOW}</li>').render(
+							{
+								suggestion: suggestions.suggestion,
+								index: index,
+								show: suggestions.show
+							});
+					}
+					return true;
+				});
+			html += '</ul>';
+
+			js(data.id).parents('[class="autocomplete"]').append(html).event('click', 'li', function(event)
+				{
+					var country = js(event.element).data('suggestion');
+					if (country && country.length)
+					{
+						js(data.id).value(country).focus();
+						data.selected = parseInt(js(event.element).data('index'));
+						js(event.element).parents('ul').filter('li').class('current').remove().eq(data.selected).class('current').add();
+					}
+					return true;
+				});
+
+			return true;
+		};
+
+		function keyup(data, event)
+		{
+			var li = js(data.id).parents('[class="autocomplete"]').filter('ul').filter('li');
+
+			var list = li.element();
+			if (!list)
+			{
+				return true;
+			}
+
+			var L = list.length ? list.length - 1 : 0;
+
+			var suggestion = null;
+			switch (event.key)
+			{
+				case 'ArrowUp':
+					if (data.selected == null)
+					{
+						data.selected = L;
+					}
+					else
+					{
+						data.selected -= 1;
+						if (data.selected < 0)
+						{
+							data.selected = L;
+						}
+					}
+					suggestion = li.eq(data.selected).data('suggestion');
+					break;
+
+				case 'ArrowDown':
+					if (data.selected == null)
+					{
+						data.selected = 0;
+					}
+					else
+					{
+						data.selected += 1;
+						if (data.selected > L)
+						{
+							data.selected = 0;
+						}
+					}
+					suggestion = li.eq(data.selected).data('suggestion');
+					break;
+
+				default:
+					break;
+			}
+
+			if (suggestion)
+			{
+				js(data.id).parents('[class="autocomplete"]').filter('ul').filter('li').class('current').remove().eq(data.selected).class('current').add();
+				js(data.id).value(suggestion);
+				return false;
+			}
+
+			return true;
+		};
+
+		return function()
+		{
+			var OK = true;
+
+			var params = {
+				id: null,
+				callback: null,
+				selected: null,
+				options: {
+					minSize: 1,
+					maxSuggestions: 10
+				}
+			}
+
+			switch (arguments.length)
+			{
+				case 2:
+				case 3:
+					for (var i = 0; i < arguments.length; i += 1)
+					{
+						switch (typeof arguments[i])
+						{
+							case 'string':
+								params.id = arguments[i];
+								break;
+
+							case 'object':
+								for (var j in arguments[i])
+								{
+									params.options[j] = arguments[i][j];
+								}
+								break;
+
+							case 'function':
+								params.callback = arguments[i];
+								break;
+
+							default:
+								console.log('Unrecognized parameter', arguments[i]);
+								break;
+						}
+					}
+					break;
+
+				default:
+					OK = false;
+					break;
+			}
+			if (params.id == null || params.callback == null)
+			{
+				OK = false;
+			}
+
+			if (!OK)
+			{
+				console.log('autocomplete(<reference>, [<options>], <callback>)');
+				return false;
+			}
+
+			js(params.id).event('input', callback.bind(null, params));
+			js(params.id).event('keyup', keyup.bind(null, params));
+
+			if (!initialized)
+			{
+				initialized = true;
+				js('html').event('click', function(event)
+					{
+						js('[class="autocomplete"]').filter('ul').remove();
+						return true;
+					});
+			}
+
+			return true;
+		};
+	})();
 
 js.page = {
 	vars: {
