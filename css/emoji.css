@@ -4,6 +4,7 @@
 .emoji {margin-right: 2px;}
 
 .emoji.abacus:before {content: "\1f9ee";}
+.emoji.asterisk:before {content: "\2733";}
 .emoji.basket:before {content: "\1f9fa";}
 .emoji.bar-chart:before {content: "\1f4ca";}
 .emoji.blue-book:before {content: "\1f4d8";}
@@ -11,6 +12,7 @@
 .emoji.books:before {content: "\1f4da";}
 .emoji.brain:before {content: "\1f9e0";}
 .emoji.brick:before {content: "\1f9f1";}
+.emoji.bucket:before {content: "\1faa3";}
 .emoji.card-index:before {content: "\1f5c2";}
 .emoji.chart-decreasing:before {content: "\1f4c9";}
 .emoji.chart-increasing:before {content: "\1f4c8";}
@@ -19,6 +21,8 @@
 .emoji.cheese:before {content: "\1f9c0";}
 .emoji.construction-worker:before {content: "\1f477";}
 .emoji.cross:before {content: "\274c";}
+.emoji.crossedswords:before {content: "\2694";}
+.emoji.cupcake:before {content: "\1f9c1";}
 .emoji.dash:before {content: "\1f4a8";}
 .emoji.fire:before {content: "\1f525";}
 .emoji.gear:before {content: "\2699";}
@@ -42,6 +46,7 @@
 .emoji.refresh:before {content: "\1f501";}
 .emoji.scroll:before {content: "\1f4dc";}
 .emoji.search:before {content: "\1f50d";}
+.emoji.shield:before {content: "\1f6e1";}
 .emoji.shuffle:before {content: "\1f500";}
 .emoji.sparkles:before {content: "\2728";}
 .emoji.speech-balloon:before {content: "\1f4ac";}
