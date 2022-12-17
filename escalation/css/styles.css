@@ -1,0 +1,8 @@
+
+canvas {background-color: snow; border: solid 1px lightgray; cursor: crosshair;}
+
+.hotkey {font-size: 75%;}
+.hotkey fieldset {display: inline; padding: 0;}
+.hotkey legend {padding: 0; padding-left: 0.5em;}
+.hotkey span {display: block; margin-left: 2px; margin-bottom: 2px; padding: 0.5em; width: 5em; text-align: center;}
+
