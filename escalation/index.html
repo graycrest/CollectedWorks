@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Escalation" />
+<meta name="keywords" content="game,standalone" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
+<meta name="csrf-token" content="{CSRF}" />
+<meta name="msapplication-config" content="none" />
+<title>Escalation</title>
+
+<link rel="stylesheet" href="/css/all.css" />
+<link rel="stylesheet" href="/escalation/css/styles.css" />
+
+<script src="/escalation/js/index.js"></script>
+<script src="/js/lib.js"></script>
+
+</head>
+<body>
+
+<header> <!-- Body-part 1 of 3 -->
+<div class="container">
+<nav class="navbar">
+	<div class="navbar-brand">
+		<div class="inline" title="Work in progress">&#x1f477; Escalation</div>
+	</div>
+	<div class="navbar-center">
+		<div class="right bold" id="score" title="Score">&nbsp;</div>
+	</div>
+	<div class="navbar-nav">
+		<form class="inline">
+			<button type="button" id="control_new" class="ml-1"><span class="emoji play"></span>New</button>
+		</form>
+	</div>
+</nav>
+</div>
+</header>
+
+<main> <!-- Body-part 2 of 3 -->
+<div class="container">
+
+<div class="d-center">
+	<form method="post" action="index.html">
+		<div class="grid">
+			<div class="col-1 span-3" title="HP">
+				&#x1f379;<meter id="hp" min="0" max="100" low="31" high="60" optimum="90" value="25" class="large">HP</meter>
+			</div>
+			<div class="col-4 span-3" title="Boss">
+				&#x2620; <meter id="boss" min="0" max="100" low="31" high="60" value="0" class="large">Boss</meter>
+			</div>
+		</div>
+		<div>
+			<!-- <canvas width="600" height="600" style="width: 600px; height: 600px;"></canvas> -->
+			<canvas width="800" height="600" style="width: 800px; height: 600px;"></canvas>
+			<div class="grid">
+				<div class="col-1 span-1 text-center" title="Speedboost">
+					<span class="large">&#x1f343;</span><span id="speedboost"></span><br /><small>Hotkey '1'</small>
+				</div>
+				<div class="col-2 span-1 text-center" title="Protective shell">
+					<span class="large">&#x1f422;</span><span id="shield"></span><br /><small>Hotkey '2'</small>
+				</div>
+				<div class="col-3 span-1 text-center" title="Nuke">
+					<span class="large">&#x1f4a3;</span><span id="nuke"></span><br /><small>Hotkey '3'</small>
+				</div>
+				<div class="col-4 span-1 text-center" title="Clear skies">
+					<span class="large">&#x2694;</span><span id="panic"></span><br /><small>Hotkey '4'</small>
+				</div>
+				<div class="col-5 span-2 text-center mt-0">
+					<span id="hotkey"></span>
+				</div>
+			</div>
+			<div id="hint">&nbsp;</div>
+		</div>
+	</form>
+	<hr class="my-2" />
+	<div class="d-center">
+	<table>
+		<caption>Statistics</caption>
+		<thead>
+			<tr>
+				<th class="text-center">Target</th>
+				<th class="text-right">Dispatched</th>
+				<th class="text-right">Escaped</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><td id="e_liner" class="text-center">&nbsp;</td><td class="text-right" id="s_liner">&nbsp;</td><td class="text-right" id="s_escaped">&nbsp;</td></tr>
+			<tr><td id="e_corner" class="text-center">&nbsp;</td><td class="text-right" id="s_corner">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td id="e_center" class="text-center">&nbsp;</td><td class="text-right" id="s_center">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td id="e_follow" class="text-center">&nbsp;</td><td class="text-right" id="s_follow">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr title="Waves"><td id="e_wave" class="text-center">&nbsp;</td><td class="text-right" id="s_wave">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr title="Members in those waves"><td id="e_member" class="text-center">&nbsp;</td><td class="text-right" id="s_member">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr title="Bosses"><td id="e_boss" class="text-center large">&nbsp;</td><td class="text-right" id="s_boss">&nbsp;</td><td>&nbsp;</td></tr>
+		</tbody>
+	</table>
+	<table>
+		<caption>Specials collected</caption>
+		<thead>
+			<tr><th class="text-center">Special</th><th class="text-right">Collected</th><th>&nbsp;</th></tr>
+		</thead>
+		<tbody>
+			<tr><td id="e_hp10" class="text-center">&nbsp;</td><td class="text-right" id="s_hp10">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td id="e_hp30" class="text-center">&nbsp;</td><td class="text-right" id="s_hp30">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td id="e_hp50" class="text-center">&nbsp;</td><td class="text-right" id="s_hp50">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td id="e_weapon" class="text-center">&nbsp;</td><td class="text-right" id="s_weapon">&nbsp;</td><td>&nbsp;</td></tr>
+		</tbody>
+	</table>
+	<table>
+		<caption>Shots fired</caption>
+		<thead>
+			<tr><th class="text-center">Shots fired</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+		</thead>
+		<tbody>
+			<tr><td id="s_bullets" class="text-center">&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+
+</div><!-- container -->
+</main>
+
+<footer> <!-- Body-part 3 of 3 -->
+<div class="container">
+<div><a href="/escalation/help.html"><span class="emoji scroll large"></span>What's this?</a></div>
+<hr />
+<div>&copy; 2020 <a href="https://celerisk.com/">PLC-Soft</a></div>
+</div>
+</footer>
+
+</body>
+</html>
