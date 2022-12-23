@@ -2816,43 +2816,42 @@ var action = {
 		return true;
 		*/
 
-		objects.player.forEach(function(player)
+		var list = [guns[1], guns[2], guns[3], guns[4], guns[5]];
+
+		list.sort(function(a, b)
 			{
-				if (player.level < 10)
-				{
-					data.guns.push(guns[0]);
-				}
-				else if (player.level < 15)
-				{
-					data.guns.push(guns[1]);
-				}
-				else if (player.level < 20)
-				{
-					data.guns.push(guns[0]);
-					data.guns.push(guns[1]);
-				}
-				else if (player.level < 30)
-				{
-					data.guns.push(guns[1]);
-					data.guns.push(guns[2 + parseInt(Math.random() * 4)]);
-				}
-				else if (player.level < 45)
-				{
-					var R = [2, 3, 4, 5].sort(function(a, b)
-						{
-							return Math.random() - Math.random();
-						});
-					data.guns.push(guns[R[0]]);
-					data.guns.push(guns[R[1]]);
-				}
-				else
-				{
-					data.guns.push(guns[2]);
-					data.guns.push(guns[3]);
-					data.guns.push(guns[4]);
-					data.guns.push(guns[5]);
-				}
+				return Math.random() - Math.random();
 			});
+
+		switch (stats.boss)
+		{
+			case 0:
+				list = [];
+				list.push(guns[0]);
+			case 1:
+			case 2:
+				data.guns.push(list[0]);
+				break;
+
+			default:
+				objects.player.forEach(function(player)
+					{
+						data.guns.push(list[0]);
+						data.guns.push(list[1]);
+						if (player.level >= 30)
+						{
+							data.guns.push(list[2]);
+						}
+						if (player.level >= 40)
+						{
+							data.guns.push(list[3]);
+						}
+						if (player.level >= 45)
+						{
+							data.guns.push(list[4]);
+						}
+					});
+		}
 
 		objects.add.boss(data);
 		return true;
