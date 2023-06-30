@@ -6,13 +6,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Sample Application" />
 <meta name="keywords" content="sample,application" />
-<meta name="author" content="pdostert@gmail.com" />
+<meta name="author" content="https://github.com/graycrest/CollectedWorks" />
 <meta name="csrf-token" content="{CSRF}" />
 <meta name="msapplication-config" content="none" />
 
-<title>Collected Works</title>
+<title>The Collected Works</title>
 
 <link rel="stylesheet" href="/css/all.css" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MX9EQ3VLLC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag()
+{
+ 	dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'G-MX9EQ3VLLC');
+</script>
 
 <script src="/js/lib.js"></script>
 
@@ -26,7 +38,7 @@
 		<div><span class="emoji medical-mask large"></span>Collected Works</div>
 	</div>
 	<div class="navbar-nav">
-		&nbsp;
+		<small>5 / x</small>
 	</div>
 </nav>
 </div> <!-- container -->
@@ -34,95 +46,110 @@
 
 <main> <!-- Body-part 2 of 3 -->
 <div class="container">
-	<div class="stack3">
+
+	<div class="section">Production-ready</div>
+
+	<div class="stack5 my-2">
 		<div class="card">
-			<header class="ml-1" title="Work in progress">Bricks <span class="small">&#x1f477;</span></header>
-			<div class="d-center">
-				<a href="/bricks/index.html" target="_blank"><img src="/bricks/images/bricks.png" width="150" /></a>
+			<header class="ml-1 mb-1">
+				ButtonMania <span class="emoji mobile-phone small" title="Mobile ready"></span>
+			</header>
+			<div class="text-center">
+				<a href="/buttonmania/index.html" target="_blank"><img src="/buttonmania/images/buttonmania.png" width="150" /></a>
 			</div>
 			<div class="text-right small">
-				<a href="/bricks/help.html" target="_blank"><span class="mute">What's this?</span></a>
+				<a href="/buttonmania/help.html" target="_blank">What's this?</a>
 			</div>
 		</div>
 		<div class="card">
-			<header class="ml-1" title="Work in progress">Maze <span class="small">&#x1f477;</span></header>
-			<div class="d-center">
-				<a href="/maze/index.html" target="_blank"><img src="/maze/images/maze.png" width="150" /></a>
+			<header class="ml-1 mb-1">
+				Codebreaker <span class="emoji mobile-phone small" title="Mobile ready"></span>
+			</header>
+			<div class="text-center">
+				<a href="/codebreaker/index.html" target="_blank"><img src="/codebreaker/images/codebreaker.png" width="150" /></a>
 			</div>
 			<div class="text-right small">
-				<a href="/maze/help.html" target="_blank"><span class="mute">What's this?</span></a>
+				<a href="/codebreaker/help.html" target="_blank">What's this?</a>
 			</div>
 		</div>
 		<div class="card">
-			<header class="ml-1">Stars</header>
-			<div class="d-center">
-				<a href="/stars/index.html" target="_blank"><img src="/stars/images/stars.png" width="150" /></a>
+			<header class="ml-1 mb-1">
+				Foggy Bay <span class="emoji mobile-phone small" title="Mobile ready"></span>
+			</header>
+			<div class="text-center">
+				<a href="/foggybay/index.html" target="_blank"><img src="/foggybay/images/foggybay.png" width="150" /></a>
 			</div>
 			<div class="text-right small">
-				<a href="/stars/help.html" target="_blank">What's this?</a>
+				<a href="/foggybay/help.html" target="_blank">What's this?</a>
 			</div>
 		</div>
 		<div class="card">
-			<header class="ml-1">Escalation</header>
-			<div class="d-center">
+			<header class="ml-1 mb-1">
+				Slider <span class="emoji mobile-phone small" title="Mobile ready"></span>
+			</header>
+			<div class="text-center">
+				<a href="/slider/index.html" target="_blank"><img src="/slider/images/slider.png" width="150" /></a>
+			</div>
+			<div class="text-right small">
+				<a href="/slider/help.html" target="_blank">What's this?</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="stack5 my-2">
+		<div class="card">
+			<header class="ml-1 mb-1">
+				Pipes <span class="emoji no-mobile-phone small" title="Best avoided on mobile"></span>
+			</header>
+			<div class="text-center">
+				<a href="/pipes/index.html" target="_blank"><img src="/pipes/images/pipes.png" width="150" /></a>
+			</div>
+			<div class="text-right small">
+				<a href="/pipes/help.html" target="_blank">What's this?</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">Experimental</div>
+
+	<div class="stack2 my-2">
+		<div>
+			<div class="card">
+			<header class="ml-1 mb-1">
+				Automaton <span class="emoji no-mobile-phone small" title="Best avoided on mobile"></span>
+			</header>
+			<div class="text-center">
+				<a href="/automaton/index.html" target="_blank"><img src="/automaton/images/automaton.png" width="150" /></a>
+			</div>
+			<div class="text-right small">
+				<a href="/automaton/help.html" target="_blank">What's this?</a>
+			</div>
+			</div>
+		</div>
+		<div>
+			<div class="card">
+			<header class="ml-1 mb-1">
+				Escalation <span class="emoji no-mobile-phone small" title="Best avoided on mobile"></span>
+			</header>
+			<div class="text-center">
 				<a href="/escalation/index.html" target="_blank"><img src="/escalation/images/escalation.png" width="150" /></a>
 			</div>
 			<div class="text-right small">
 				<a href="/escalation/help.html" target="_blank">What's this?</a>
 			</div>
+			</div>
 		</div>
 	</div>
+	<div class="section">The Big Two</div>
 
-	<hr class="my-2" />
-
-	<div>
-		<a href="http://localhost:12249/" target="_blank"><span class="emoji cupcake large"></span>Prod</a>
-	</div>
-
-	<div class="stack4">
-		<!--
+	<div class="stack2 my-2">
 		<div>
-			<a href="/converse/index.html" target="_blank"><span class="emoji speech-balloon large"></span>Converse</a>
-		</div>
-		-->
-		<div>
-			<a href="/inspiration/index.html" target="_blank"><span class="emoji sparkles large"></span>Inspiration</a>
+			<header>RPN Calculator <span class="small"><span class="emoji no-mobile-phone" title="Best avoided on mobile"></span></span></header>
+			<a href="/rpncalc/index.html" target="_blank"><img src="/rpncalc/images/rpncalc.png" width="300" /></a>
 		</div>
 		<div>
-			<a href="/libcss/index.html" target="_blank"><span class="emoji green-book large"></span>LibCSS</a>
-		</div>
-		<div>
-			<a href="/libjs/index.html" target="_blank"><span class="emoji blue-book large"></span>LibJS</a>
-		</div>
-		<div>
-			<a href="/qrcode/index.html" target="_blank"><span class="emoji card-index large"></span>QRCode</a>
-		</div>
-		<div>
-			<a href="/rpncalc/index.html" target="_blank"><span class="emoji abacus large"></span>RPN Calculator</a>
-		</div>
-		<div>
-			<a href="/wordle/index.html" target="_blank"><span class="emoji newspaper large"></span>Wordle helper</a>
-		</div>
-	</div>
-
-	<hr class="my-2" />
-
-	<div class="stack2">
-		<div>
-			<div>
-				<a href="/login/index.js" target="_blank"><span class="large">&#x1f510</span> Login</a>
-			</div>
-		</div>
-		<div>
-			<div>
-				<a href="/access/index.js" target="_blank"><span class="large">&#x1faa4</span> Access</a>
-			</div>
-			<div>
-				<a href="/cactus/index.js" target="_blank"><span class="emoji cactus large"></span>Cactus</a>
-			</div>
-			<div>
-				<a href="/files/index.js" target="_blank"><span class="large">&#x1f4c2</span> Files</a>
-			</div>
+			<header>Sudoku <span class="small"><span class="emoji no-mobile-phone" title="Best avoided on mobile"></span></span></header>
+			<a href="/sudoku/index.html" target="_blank"><img src="/sudoku/images/sudoku.png" width="150" /></a>
 		</div>
 	</div>
 
@@ -131,7 +158,15 @@
 
 <footer> <!-- Body-part 3 of 3 -->
 <div class="container">
-	<div class="text-right">
+	<div class="text-center">
+		<img src="/images/celerisk.png" width="100" alt="QRCode to https://celerisk.com/" />
+	</div>
+	<hr class="mt-1 mb-0" />
+	<div>
+		<span class="emoji mobile-phone"></span> mobile ready<br />
+		<span class="emoji no-mobile-phone"></span> best avoided on mobile
+	</div>
+	<div class="text-right mt-1">
 		<span title="The book you didn't know you needed">
 			<span aria-hidden="true" class="emoji books large"></span>978-2-268-00314-6
 		</span>
