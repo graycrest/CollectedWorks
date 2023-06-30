@@ -11,8 +11,8 @@ var js = function(reference)
 			}
 			catch (error)
 			{
-				// console.log(error.name);
-				// console.log(error.message);
+				// console.error(error.name);
+				// console.error(error.message);
 			}
 			if (result && result.length)
 			{
@@ -30,6 +30,10 @@ var js = function(reference)
 		default:
 			if (reference.length || reference.length === 0)
 			{
+				if (reference.nodeType && reference.nodeType == 1)
+				{
+					reference = [reference];
+				}
 				break;
 			}
 			reference = [reference];
@@ -795,6 +799,133 @@ js.template = function(html)
 	return self;
 };
 
+js.humanReadable = function(n)
+{
+	if (n == 0)
+	{
+		return '&lt;empty&gt;';
+	}
+	if (n == 1)
+	{
+		return '1byte';
+	}
+	if (n < 1024)
+	{
+		return n + 'bytes';
+	}
+	if (n < 1024 * 1024) {
+		return (n / (1024)).toFixed(2) + 'K';
+	}
+	if (n < 1024 * 1024 * 1024)
+	{
+		return (n / (1024 * 1024)).toFixed(2) + 'M';
+	}
+	return (n / (1024 * 1024 * 1024)).toFixed(2) + 'G';
+};
+
+js.tableSorter = function(reference, options)
+{
+	js(reference)
+		.data('cellIndex', 0)
+		.data('asc', true)
+		.filter('thead').event('click', 'th', (function click(options, event)
+			{
+				let cellIndex = event.element.cellIndex;
+
+				if (options[cellIndex] === false)
+				{
+					return true;
+				}
+
+				let table = js(event.element).parents('table').element();
+				let tbody = js(event.element).parents('table').filter('tbody').element();
+
+				let asc = js(table).data('asc');
+				if (cellIndex == js(table).data('cellIndex'))
+				{
+					asc = asc == 'true' ? false : true;
+				}
+				else
+				{
+					asc = true;
+				}
+
+				js(table).data('cellIndex', cellIndex);
+				js(table).data('asc', asc);
+
+				Array.from(js(tbody).filter('tr').element()).sort(function(tr1, tr2)
+					{
+						let a = 0;
+						let b = 0;
+						if (typeof options[cellIndex] == 'string')
+						{
+							a = js(tr1).filter('td').eq(cellIndex).data(options[cellIndex]);
+							b = js(tr2).filter('td').eq(cellIndex).data(options[cellIndex]);
+						}
+						else
+						{
+							a = js(tr1).filter('td').eq(cellIndex).text();
+							b = js(tr2).filter('td').eq(cellIndex).text();
+						}
+
+						if (!isNaN(parseFloat(a)) && a == parseFloat(a))
+						{
+							a = parseFloat(a);
+						}
+						else if (!isNaN(parseInt(a)) && a == parseInt(a))
+						{
+							a = parseInt(a);
+						}
+						else
+						{
+							a = a.toLowerCase();
+						}
+
+						if (!isNaN(parseFloat(b)) && b == parseFloat(b))
+						{
+							b = parseFloat(b);
+						}
+						else if (!isNaN(parseInt(b)) && b == parseInt(b))
+						{
+							b = parseInt(b);
+						}
+						else
+						{
+							b = b.toLowerCase();
+						}
+
+						if (typeof a != typeof b)
+						{
+							if (typeof a != 'string')
+							{
+								a = a.toString();
+							}
+							if (typeof b != 'string')
+							{
+								b = b.toString();
+							}
+						}
+
+						if (a < b)
+						{
+							return asc ? -1 : 1;
+						}
+						if (a > b)
+						{
+							return asc ? 1 : -1;
+						}
+						return 0;
+					}).forEach(function(tr)
+						{
+							return js(tbody).append(tr);
+						});
+
+				return true;
+			}).bind(null, options));
+
+	return true;
+};
+
 js.storage = function(app)
 {
 	var self = {};
@@ -919,32 +1050,35 @@ js.autocomplete = (function()
 				return true;
 			}
 
-			var html = '<ul>';
-			data.callback(content).forEach(function(suggestions, index)
+			Promise.resolve(data.callback(content)).then(function(items)
 				{
-					if (index < data.options.maxSuggestions)
-					{
-						html += js.template('<li data-suggestion="{SUGGESTION}" data-index="{INDEX}">{SHOW}</li>').render(
+					var html = '<ul>';
+					items.forEach(function(suggestions, index)
+						{
+							if (index < data.options.maxSuggestions)
 							{
-								suggestion: suggestions.suggestion,
-								index: index,
-								show: suggestions.show
-							});
-					}
-					return true;
-				});
-			html += '</ul>';
+								html += js.template('<li data-suggestion="{SUGGESTION}" data-index="{INDEX}">{SHOW}</li>').render(
+									{
+										suggestion: suggestions.suggestion,
+										index: index,
+										show: suggestions.show
+									});
+							}
+							return true;
+						});
+					html += '</ul>';
 
-			js(data.id).parents('[class="autocomplete"]').append(html).event('click', 'li', function(event)
-				{
-					var country = js(event.element).data('suggestion');
-					if (country && country.length)
-					{
-						js(data.id).value(country).focus();
-						data.selected = parseInt(js(event.element).data('index'));
-						js(event.element).parents('ul').filter('li').class('current').remove().eq(data.selected).class('current').add();
-					}
-					return true;
+					js(data.id).parents('[class="autocomplete"]').append(html).event('click', 'li', function(event)
+						{
+							var suggestion = js(event.element).data('suggestion');
+							if (suggestion && suggestion.length)
+							{
+								js(data.id).value(suggestion).focus();
+								data.selected = parseInt(js(event.element).data('index'));
+								js(event.element).parents('ul').filter('li').class('current').remove().eq(data.selected).class('current').add();
+							}
+							return true;
+						});
 				});
 
 			return true;
@@ -1003,7 +1137,7 @@ js.autocomplete = (function()
 
 			if (suggestion)
 			{
-				js(data.id).parents('[class="autocomplete"]').filter('ul').filter('li').class('current').remove().eq(data.selected).class('current').add();
+				js(data.id).parents('[class="autocomplete"]').filter('ul').filter('li').class('current').remove().eq(data.selected).class('current').add().element().scrollIntoView({behavior: "auto", block: "nearest", inline: "start"});
 				js(data.id).value(suggestion);
 				return false;
 			}
@@ -1231,6 +1365,40 @@ js.page = {
 		js('code').each(function(element)
 			{
 				return js.page.features.code(element);
+			});
+		js('#logout').parents('form').event('submit', function(event)
+			{
+				event.preventDefault();
+				let m = window.location.pathname.match(/\/([^/]+)/);
+				m && m[1] && fetch('/' + m[1] + '/ajax/logout.js',
+					{
+						method: 'POST',
+						mode: 'same-origin',
+						cache: 'no-cache',
+						credentials: 'same-origin',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify('')
+					})
+					.then(function(response)
+						{
+							return response.json();
+						})
+					.then(function(result)
+						{
+							switch (result.status)
+							{
+								case 'OK':
+									window.location.reload(true);
+									break;
+								default:
+									js('#hint').text(result.description);
+									break;
+							}
+							return true;
+						});
+				return false;
 			});
 		return true;
 	},
