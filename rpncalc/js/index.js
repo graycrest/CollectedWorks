@@ -324,6 +324,7 @@ var tokenizer = {
 			case 'grad':
 			case 'fact':
 			case 'gamma':
+			case 'lambertw':
 			case 'comb':
 			case 'perm':
 			case 'min':
@@ -652,6 +653,7 @@ var plot = {
 				min: function(x, y) { return Math.min(x, y); },
 				max: function(x, y) { return Math.max(x, y); },
 				gamma: function(x) { return helper.functions.gamma(x); },
+				lambertw: function(x) { return helper.functions.lambertw(x); },
 			});
 	},
 
@@ -1975,6 +1977,21 @@ var special = {
 			throw new error(ERR_INVALID_ARGUMENT_TYPE);
 		}
 		stack.a.push({value: helper.functions.gamma(parseFloat(item.value)), type: 'number'});
+		return true;
+	},
+	lambertw: function()
+	{
+		if (stack.a.length < 1)
+		{
+			throw new error(ERR_TOO_FEW_ARGUMENTS);
+		}
+		var item = stack.a.pop();
+		if (item.type != 'number')
+		{
+			stack.a.push(item);
+			throw new error(ERR_INVALID_ARGUMENT_TYPE);
+		}
+		stack.a.push({value: helper.functions.lambertw(parseFloat(item.value)), type: 'number'});
 		return true;
 	},
 	deg: function()
@@ -3595,6 +3612,39 @@ var helper = {
  
     		var t = x + constants.length - 2 + 0.5;
     		return Math.sqrt(2 * Math.PI) * Math.pow(t, x + 0.5) * Math.exp(-t) * a;
+		},
+		lambertw: function(n)
+		{
+			/*
+			 * https://en.wikipedia.org/wiki/Lambert_W_function
+			 *
+			 * Newton's approximation:
+			 * Xn+1 = Xn - f(Xn) / f'(Xn)
+			 *
+			 * f(x) = x * e^x - constant
+			 * f^-1(x) = W(x) (inverse function)
+			 *
+			 * f'(x) = x * e^x + e^x
+			 *
+			 * constant = n = initial guess
+			 */
+
+			let precision = Math.pow(10, -Math.max(2, options.precision));
+
+			let x = n;
+
+			while (true)
+			{
+				let e = Math.exp(x);
+				let t = x - (x * e - n) / (x * e + e);
+				if (Math.abs(t - x) <= precision)
+				{
+					break;
+				}
+				x = t;
+			}
+
+			return x;
 		},
 		comb: function(r, n) // r: selected, n: total
 		{
