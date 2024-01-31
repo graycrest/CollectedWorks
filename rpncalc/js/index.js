@@ -653,7 +653,6 @@ var plot = {
 				min: function(x, y) { return Math.min(x, y); },
 				max: function(x, y) { return Math.max(x, y); },
 				gamma: function(x) { return helper.functions.gamma(x); },
-				lambertw: function(x) { return helper.functions.lambertw(x); },
 			});
 	},
 
@@ -3637,6 +3636,10 @@ var helper = {
 			{
 				let e = Math.exp(x);
 				let t = x - (x * e - n) / (x * e + e);
+				if (isNaN(t))
+				{
+					break;
+				}
 				if (Math.abs(t - x) <= precision)
 				{
 					break;
