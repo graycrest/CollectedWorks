@@ -26,10 +26,10 @@ body > footer {background-color: WhiteSmoke; padding-top: 1.5em; border-top: sol
 
 :not(body) > header {font-weight: bold; font-size: 110%;}
 
-.navbar {display: grid; grid-template-columns: auto 1fr auto; padding: 0;}
-.navbar-brand {display: inline; text-align: left; margin: auto 0;}
-.navbar-center {display: inline; text-align: center; margin: auto auto; min-width: 10em;}
-.navbar-nav {display: inline; text-align: right; margin: auto 0;}
+.navbar {display: flex; padding: 0; justify-content: space-between;}
+.navbar-brand {text-align: left;}
+.navbar-center {text-align: center;}
+.navbar-nav {text-align: right;}
 
 .container {max-width: 100rem; margin: 0 auto;}
 
@@ -67,7 +67,7 @@ body > footer {background-color: WhiteSmoke; padding-top: 1.5em; border-top: sol
 .stack6 {display: flex; flex-wrap: wrap; justify-content: center;}
 .stack6 > * {flex: 0 1 16.6rem;}
 
-.card {display: grid; grid-template-rows: auto 1fr auto; border: solid 1px lightgray; border-radius: 4px; max-width: 20rem;}
+.card {display: inline-grid; grid-template-rows: auto 1fr auto; border: solid 1px lightgray; border-radius: 4px; max-width: 20rem;}
 
 .mt-0 {margin-top: 0.5em;}
 .mt-1 {margin-top: 1em;}
@@ -144,7 +144,7 @@ button:disabled {color: #bbb;}
 form {padding-top: 4px; padding-bottom: 4px;}
 form fieldset {margin: 0; border: solid 1px LightGray; border-radius: 4px;}
 form legend {font-weight: bold; padding: 2px 0.5em; color: SteelBlue;}
-form label {font-weight: bold; color: SteelBlue; display: inline-flex; width: 100%;}
+form label {font-weight: bold; color: SteelBlue; display: inline-flex; width: 100%; align-items: center;}
 
 form .checkbox label {font-weight: normal; color: Black;}
 form .radio label {font-weight: normal; color: Black;}
@@ -157,13 +157,13 @@ textarea:focus {outline: none; border-color: LightSteelBlue;}
 
 input {border: solid 1px Gray; padding: 0.5em 1em;}
 input[type="text"] {width: 100%;}
+input[type="password"] {width: 100%;}
 input:focus {outline: none; border-color: LightSteelBlue;}
 
 .input-group {display: table; width: 100%;}
 .input-group div {display: table-cell; margin: 0;}
 .input-group input {margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;}
 .input-group button {margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;}
-
 
 .switch {position: relative; display: inline-block;}
 .switch-input {display: none;}
@@ -191,6 +191,7 @@ input:focus {outline: none; border-color: LightSteelBlue;}
 small {font-size: 80%;}
 .small {font-size: 80%;}
 .large {font-size: 150%;}
+.huge {font-size: 200%;}
 .hidden {display: none}
 .bold {font-weight: bold;}
 
@@ -210,4 +211,10 @@ small {font-size: 80%;}
 .help-info {border-left: solid 5px LightSkyBlue;}
 .help-warning {border-left: solid 5px Orange;}
 .help-danger {border-left: solid 5px Red;}
+
+.autocomplete {position: relative;}
+.autocomplete ul {position: absolute; z-index: 99; top: 100%; left: 0; right: 0; max-height: 15em; overflow-x: hidden; overflow-y: scroll; background-color: white; margin-top: 0; border: solid 1px silver;}
+.autocomplete li {list-style-type: none; margin-left: 0; padding-left: 0.5em;}
+.autocomplete .current {background-color: Cornsilk;}
+.autocomplete li:hover {background-color: Cornsilk;}
 
