@@ -9,7 +9,6 @@ var emoji = [
 	String.fromCodePoint(0x23f0),	// Alarm Clock
 	String.fromCodePoint(0x2615),	// Coffee
 	String.fromCodePoint(0x26c4),	// Snowman
-
 	String.fromCodePoint(0x1f388),	// Balloon
 	String.fromCodePoint(0x1f34c),	// Banana
 	String.fromCodePoint(0x1f3c0),	// Basketball
@@ -41,7 +40,6 @@ var emoji = [
 	String.fromCodePoint(0x1f9f8),	// Teddy Bear
 	String.fromCodePoint(0x1f377),	// Wine Glass
 	String.fromCodePoint(0x1f381),	// Wrapped Gift
-
 	String.fromCodePoint(0x2708) + String.fromCodePoint(0xfe0f),	// Airplane
 	String.fromCodePoint(0x2699) + String.fromCodePoint(0xfe0f),	// Gear
 	String.fromCodePoint(0x1f5dd) + String.fromCodePoint(0xfe0f),	// Old Key
