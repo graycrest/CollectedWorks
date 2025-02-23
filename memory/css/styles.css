@@ -1,6 +1,6 @@
 
 #zuuts {color: white;}
 
-#board {display: grid; grid-template-columns: repeat(6, 1fr); max-width: 24em; margin: 0.5em auto;}
-#board div {aspect-ratio: 1 / 1; display: flex; justify-content: center; align-items: center; font-size: 3em;}
+#board {display: grid; grid-template-columns: repeat(6, 1fr); max-width: 21em; margin: 0.5em auto;}
+#board div {aspect-ratio: 1 / 1; display: flex; justify-content: center; align-items: center; font-size: 2.5em;}
 
