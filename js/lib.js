@@ -1221,7 +1221,7 @@ js.autocomplete = (function()
 		};
 	})();
 
-js.page = {
+js.main = {
 	vars: {
 		setup: false,
 	},
@@ -1257,7 +1257,7 @@ js.page = {
 						{
 							var id = js.uniqueID();
 							headers.push('<span class="tabs-header" id="' + id + '">' + js(header).text() + '</span>');
-							tabs.push({tab: tab, header: '#' + id});
+							tabs.push({tab: tab, header: '#' + id, event: 'tab:' + js(header).text().replace(/\s/, '-').toLowerCase()});
 							if (js(header).data('remove'))
 							{
 								js(header).remove();
@@ -1277,6 +1277,7 @@ js.page = {
 							{
 								js(tabs[index].tab).class('hidden').toggle();
 								js(tabs[index].header).class('mute').toggle();
+								js(tabs[index].tab).trigger(tabs[index].event);
 							}
 							else
 							{
@@ -1352,19 +1353,19 @@ js.page = {
 	{
 		js('.spoiler').each(function(element)
 			{
-				return js.page.features.spoiler(element);
+				return js.main.features.spoiler(element);
 			});
 		js('.tabs').each(function(element)
 			{
-				return js.page.features.tabs(element);
+				return js.main.features.tabs(element);
 			});
 		js('.tabs-vertical').each(function(element)
 			{
-				return js.page.features.tabs_vertical(element);
+				return js.main.features.tabs_vertical(element);
 			});
 		js('code').each(function(element)
 			{
-				return js.page.features.code(element);
+				return js.main.features.code(element);
 			});
 		js('#logout').parents('form').event('submit', function(event)
 			{
@@ -1406,13 +1407,13 @@ js.page = {
 	interface: {
 		init: function()
 		{
-			if (js.page.vars.setup)
+			if (js.main.vars.setup)
 			{
 				return true;
 			}
-			js.page.vars.setup = true;
+			js.main.vars.setup = true;
 
-			js.page.init();
+			js.main.init();
 
 			if (typeof main != 'undefined' && main.interface && main.interface.init)
 			{
@@ -1426,11 +1427,11 @@ switch (document.readyState)
 {
 	case 'loading':
 	case 'interactive':
-		document.addEventListener('DOMContentLoaded', js.page.interface.init);
+		document.addEventListener('DOMContentLoaded', js.main.interface.init);
 		break;
 	case 'complete':
 	default:
-		js.page.interface.init();
+		js.main.interface.init();
 		break;
 }
 
