@@ -219,7 +219,8 @@ var main = {
 							{
 								return '<dd>' + (data == score ? '<b>' + data + '</b> &#x2728;' : data) + '</dd>';
 							}).join('') + '<dl>');
-						js.storage('memory').set('scores', main.scores.slice(0, 3));
+						// js.storage('memory').set('scores', main.scores.slice(0, 3));
+						js.storage('memory').set('scores', null);
 					}
 
 					return false;
