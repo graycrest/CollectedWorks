@@ -9,6 +9,7 @@ var emoji = [
 	String.fromCodePoint(0x23f0),	// Alarm Clock
 	String.fromCodePoint(0x2615),	// Coffee
 	String.fromCodePoint(0x26c4),	// Snowman
+
 	String.fromCodePoint(0x1f388),	// Balloon
 	String.fromCodePoint(0x1f34c),	// Banana
 	String.fromCodePoint(0x1f3c0),	// Basketball
@@ -40,11 +41,16 @@ var emoji = [
 	String.fromCodePoint(0x1f9f8),	// Teddy Bear
 	String.fromCodePoint(0x1f377),	// Wine Glass
 	String.fromCodePoint(0x1f381),	// Wrapped Gift
+
 	String.fromCodePoint(0x2708) + String.fromCodePoint(0xfe0f),	// Airplane
 	String.fromCodePoint(0x2699) + String.fromCodePoint(0xfe0f),	// Gear
 	String.fromCodePoint(0x1f5dd) + String.fromCodePoint(0xfe0f),	// Old Key
 	String.fromCodePoint(0x1f6f0) + String.fromCodePoint(0xfe0f)	// Satellite
 ];
+emoji.forEach(function(element, index, list)
+	{
+		list[index] = {emoji: element, sort: 0};
+	});
 
 
 var board = (function()
@@ -65,25 +71,30 @@ var board = (function()
 				main.previous = null;
 				main.time = null;
 
-				emoji.sort(function(x, y)
+				emoji.forEach(function(element)
 					{
-						return Math.random() - Math.random();
+						element.sort = Math.random() - Math.random();
+					});
+				emoji.sort(function(a, b)
+					{
+						return a.sort - b.sort;
 					});
 
 				let b = [];
 				for (let i = 0; b.length < SIZE; i += 1)
 				{
-					b.push(i);
-					b.push(i);
+					b.push({index: i, sort: Math.random() - Math.random()});
+					b.push({index: i, sort: Math.random() - Math.random()});
 				}
-				b.sort(function(x, y)
+				b.sort(function(a, b)
 					{
-						return Math.random() - Math.random();
+						return a.sort - b.sort;
 					});
 
 				a.forEach(function(element, index)
 					{
-						element.emoji = b.pop();
+						let t = b.pop();
+						element.emoji = t.index;
 						element.found = false;
 						element.clicked = 0;
 						board(index).draw();
@@ -109,7 +120,7 @@ var board = (function()
 
 			self.draw = function(flag = false)
 			{
-				js('#board div[data-xy="' + index + '"]').text(flag || a[index].found ? emoji[a[index].emoji] : EMPTY);
+				js('#board div[data-xy="' + index + '"]').text(flag || a[index].found ? emoji[a[index].emoji].emoji : EMPTY);
 				return self;
 			};
 
