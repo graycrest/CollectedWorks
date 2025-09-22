@@ -31,6 +31,7 @@
 .emoji.lightning:before {content: "\26a1";}
 .emoji.map:before {content: "\1f5fa";}
 .emoji.memo:before {content: "\1f4dd";}
+.emoji.minus:before {content: "\2796";}
 .emoji.mouse-face:before {content: "\1f42d";}
 .emoji.newspaper:before {content: "\1f4f0";}
 .emoji.no-mobile-phone:before {content: "\1f4f5";}
@@ -84,4 +85,5 @@
 .emoji.green-square:before {content: "\1f7e9";}
 .emoji.purple-square:before {content: "\1f7ea";}
 .emoji.brown-square:before {content: "\1f7eb";}
+
 
