@@ -3723,6 +3723,7 @@ var helper = {
 			case 'number':
 				return parseFloat(parseFloat(item.value).toFixed(options.precision)).toLocaleString('fr',
 					{
+						notation: item.value.toString().indexOf('e') >= 0 ? 'scientific' : 'standard',
 						minimumFractionDigits: 0,
 						maximumFractionDigits: 10
 					});
