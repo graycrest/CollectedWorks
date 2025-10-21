@@ -53,6 +53,307 @@ var options = {
 };
 
 
+var primes = (function()
+	{
+		const N_DEFAULT = 1000;
+		const N_MAX = 10000;
+
+		var list = [];
+		var current = [];
+
+		var calls = 0;
+
+		var test = 5;
+		var dd = 2;
+
+		var generator = {first: true}
+
+		function offset(n)
+		{
+			switch (n % 10)
+			{
+				case 1:
+					return 4 * parseInt(n / 10);
+
+				case 3:
+					return 4 * parseInt(n / 10) + 1;
+
+				case 7:
+					return 4 * parseInt(n / 10) + 2;
+
+				case 9:
+					return 4 * parseInt(n / 10) + 3;
+
+				default:
+					return 0;
+			}
+			return 0;
+		};
+
+		function loop()
+		{
+			let result = true;
+			list.forEach(function(value, index)
+				{
+					let i = offset(value);
+					if (current[i] < test)
+					{
+						current[i] += 2 * value;
+					}
+					if (current[i] == test)
+					{
+						result = false;
+					}
+					return true;
+				});
+			if (result)
+			{
+				list.push(test);
+				current[offset(test)] = 5 * test;
+			}
+			test += dd;
+			dd = 6 - dd;
+			return true;
+		};
+
+		while (list.length < N_DEFAULT)
+		{
+			loop();
+		}
+
+		return function(n = N_DEFAULT)
+		{
+			var self = this;
+
+			while (list.length < N_MAX && list.length < n - 2)
+			{
+				loop();
+			}
+
+			self.init = function()
+			{
+				calls = 0;
+				return self;
+			};
+
+			self.next = function()
+			{
+				calls += 1;
+				while (list.length < N_MAX && list.length - 1 < calls - 3)
+				{
+					loop();
+				}
+				switch (calls)
+				{
+					case 1:
+						return 2;
+					case 2:
+						return 3;
+					default:
+						if (list[calls - 3])
+						{
+							return list[calls - 3];
+						}
+
+						if (generator.first)
+						{
+							generator.t = test;
+							generator.d = dd;
+							generator.first = false;
+						}
+
+						while (true)
+						{
+							let t = generator.t;
+							generator.t += generator.d;
+							generator.d = 6 - generator.d;
+							if (primes(N_DEFAULT).test(t))
+							{
+								return t;
+							}
+						}
+						break;
+				}
+				return list[list.length - 1];
+			};
+
+			self.get = function(n)
+			{
+				n = parseInt(Math.abs(n));
+				if (isNaN(n))
+				{
+					return false;
+				}
+				switch (n)
+				{
+					case 0:
+					case 1:
+						return 2;
+
+					case 2:
+						return 3;
+
+					default:
+						while (list.length < N_MAX && list.length + 2 < n)
+						{
+							loop();
+						}
+
+						if (list[n - 3])
+						{
+							return list[n - 3];
+						}
+
+						let t = test;
+						let d = dd;
+						let c = list.length + 2;
+						while (true)
+						{
+							if (primes(N_DEFAULT).test(t))
+							{
+								c += 1;
+								if (c >= n)
+								{
+									return t;
+								}
+							}
+							t += d;
+							d = 6 - d;
+						}
+				}
+				return 0;
+			};
+
+			self.test = function(n)
+			{
+				n = parseInt(Math.abs(n));
+				if (isNaN(n))
+				{
+					return false;
+				}
+				if (n < 2)
+				{
+					return false;
+				}
+
+				switch (n)
+				{
+					case 2:
+					case 3:
+						return true;
+
+					default:
+						if ((n % 2) == 0)
+						{
+							return false;
+						}
+						if ((n % 3) == 0)
+						{
+							return false;
+						}
+
+						let s = Math.sqrt(n);
+						while (list.length < N_MAX && list[list.length - 1] < s)
+						{
+							loop();
+						}
+
+						for (let i = 0; list[i] <= s; i += 1)
+						{
+							if ((n % list[i]) == 0)
+							{
+								return false;
+							}
+						}
+						if (list[list.length - 1] <= s)
+						{
+							let t = test;
+							let d = dd;
+							while (t <= s)
+							{
+								if ((n % t) == 0)
+								{
+									return false;
+								}
+								t += d;
+								d = 6 - d;
+							}
+						}
+
+						return true;
+				}
+				return false;
+			};
+
+			self.factorize = function(n)
+			{
+				let result = [];
+
+				n = parseInt(Math.abs(n));
+				if (isNaN(n))
+				{
+					return result;
+				}
+
+				if (n <= 3)
+				{
+					return [n];
+				}
+
+				let s = Math.sqrt(n);
+
+				while (list.length < N_MAX && list[list.length - 1] < s)
+				{
+					loop();
+				}
+
+				while ((n % 2) == 0)
+				{
+					result.push(2);
+					n /= 2;
+				}
+				while ((n % 3) == 0)
+				{
+					result.push(3);
+					n /= 3;
+				}
+
+				for (let i = 0; list[i] <= s; i += 1)
+				{
+					while ((n % list[i]) == 0)
+					{
+						result.push(list[i]);
+						n /= list[i];
+					}
+				}
+				if (list[list.length - 1] <= s)
+				{
+					let t = test;
+					let d = dd;
+					while (t <= s)
+					{
+						while ((n % t) == 0)
+						{
+							result.push(t);
+							n /= t;
+						}
+						t += d;
+						d = 6 - d;
+					}
+				}
+				if (n > 1)
+				{
+					result.push(n);
+				}
+
+				return result;
+			};
+
+			return self;
+		};
+	})();
+
+
 var error = function(which)
 {
 	// this.name = String.fromCodePoint(0x1f4a3); // Bomb
@@ -315,6 +616,8 @@ var tokenizer = {
 			case 'cb':
 			case 'factor':
 			case 'div':
+			case 'prime':
+			case 'primen':
 			case 'rand':
 			case 'date':
 			case 'time':
@@ -2062,7 +2365,8 @@ var special = {
 			stack.a.push(item);
 			throw new error(ERR_INVALID_ARGUMENT_TYPE);
 		}
-		var list = helper.functions.factor(parseInt(item.value));
+		// var list = helper.functions.factor(parseInt(item.value));
+		var list = primes(1000).factorize(parseInt(item.value));
 		list.forEach(function(element)
 			{
 				stack.a.push({value: element, type: 'number'});
@@ -2081,6 +2385,36 @@ var special = {
 			s.push(count > 1 ? t + '<sup>' + count + '</sup>' : '' + t);
 		}
 		hint.html(s.join(' * '));
+		return true;
+	},
+	prime: function()
+	{
+		if (stack.a.length < 1)
+		{
+			throw new error(ERR_TOO_FEW_ARGUMENTS);
+		}
+		var item = stack.a.pop();
+		if (item.type != 'number')
+		{
+			stack.a.push(item);
+			throw new error(ERR_INVALID_ARGUMENT_TYPE);
+		}
+		stack.a.push({value: primes(1000).test(parseInt(item.value)) ? 1 : 0 , type: 'number'});
+		return true;
+	},
+	primen: function()
+	{
+		if (stack.a.length < 1)
+		{
+			throw new error(ERR_TOO_FEW_ARGUMENTS);
+		}
+		var item = stack.a.pop();
+		if (item.type != 'number')
+		{
+			stack.a.push(item);
+			throw new error(ERR_INVALID_ARGUMENT_TYPE);
+		}
+		stack.a.push({value: primes(1000).get(parseInt(item.value)), type: 'number'});
 		return true;
 	},
 	div: function()
